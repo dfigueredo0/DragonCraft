@@ -3,10 +3,8 @@ package com.elysiumgames.dragoncraft.datagen;
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.utils.IAgeableCropBlock;
 import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
-import net.minecraft.core.BlockPos;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,6 +28,26 @@ public class DCBlockStateProvider extends BlockStateProvider {
         simpleBlock(DCBlocks.KORIN_PILLAR.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar")));
         simpleBlock(DCBlocks.KORIN_PILLAR_1.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_1")));
         simpleBlock(DCBlocks.KORIN_PILLAR_2.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_2")));
+
+        blockWithItem(DCBlocks.ELATOS_ORE);
+        blockWithItem(DCBlocks.DEEPSLATE_ELATOS_ORE);
+        blockWithItem(DCBlocks.HELL_ELATOS_ORE);
+        blockWithItem(DCBlocks.PARABELLUM_ORE);
+        blockWithItem(DCBlocks.DEEPSLATE_PARABELLUM_ORE);
+        blockWithItem(DCBlocks.END_STONE_PARABELLUM_ORE);
+        blockWithItem(DCBlocks.BLOOD_RUBY_ORE);
+        blockWithItem(DCBlocks.DEEPSLATE_BLOOD_RUBY_ORE);
+        blockWithItem(DCBlocks.HELL_BLOOD_RUBY_ORE);
+        blockWithItem(DCBlocks.HELL_INFERNIUM_ORE);
+        //blockWithItem(DCBlocks.ELATOS_BLOCK); // TODO: Make textures for commented out blocks
+        //blockWithItem(DCBlocks.RAW_PARABELLUM_BLOCK);
+        //blockWithItem(DCBlocks.PARABELLUM_BLOCK);
+        //blockWithItem(DCBlocks.RUBY_BLOCK);
+        //blockWithItem(DCBlocks.INFERNIUM_BLOCK);
+        //blockWithItem(DCBlocks.KATCHIN_BLOCK);
+        blockWithItem(DCBlocks.GIZARD_DIRT);
+        blockWithItem(DCBlocks.DEFAULT_HELL);
+        blockWithItem(DCBlocks.JANEMBA_HELL);
 
     }
 

@@ -20,4 +20,9 @@ public class DCItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
 
     }
+
+    @Override
+    public String getName() {
+        return "Item Tags";
+    }
 }

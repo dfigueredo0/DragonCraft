@@ -23,8 +23,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new DCRecipeProvider(packOutput));
         generator.addProvider(event.includeServer(), DCLootTableProvider.create(packOutput));
 
-        generator.addProvider(event.includeClient(), new DCBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new DCItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new DCBlockStateProvider(packOutput, existingFileHelper));
 
         DCBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
                 new DCBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));

@@ -1,6 +1,7 @@
 package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.world.item.DCItems;
 import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -44,6 +45,32 @@ public class DCItemModelProvider extends ItemModelProvider {
         complexBlock(DCBlocks.KORIN_PILLAR.get());
         complexBlock(DCBlocks.KORIN_PILLAR_1.get());
         complexBlock(DCBlocks.KORIN_PILLAR_2.get());
+
+        simpleItem(DCItems.ELATOS);
+        simpleItem(DCItems.RAW_PARABELLUM);
+        simpleItem(DCItems.PARABELLUM_INGOT);
+        simpleItem(DCItems.BLOOD_RUBY);
+        simpleItem(DCItems.INFERNIUM);
+        simpleItem(DCItems.KATCHIN);
+        simpleItem(DCItems.DINOSAUR_MEAT);
+        simpleItem(DCItems.COOK_DINOSAUR_MEAT);
+        simpleItem(DCItems.RADISH);
+
+        handheldItem(DCItems.BLOOD_RUBY_SWORD);
+        handheldItem(DCItems.BLOOD_RUBY_SHOVEL);
+        handheldItem(DCItems.BLOOD_RUBY_PICKAXE);
+        handheldItem(DCItems.BLOOD_RUBY_AXE);
+        handheldItem(DCItems.BLOOD_RUBY_HOE);
+        handheldItem(DCItems.PARABELLUM_SWORD);
+        handheldItem(DCItems.PARABELLUM_SHOVEL);
+        handheldItem(DCItems.PARABELLUM_PICKAXE);
+        handheldItem(DCItems.PARABELLUM_AXE);
+        handheldItem(DCItems.PARABELLUM_HOE);
+        handheldItem(DCItems.INFERNIUM_SWORD);
+        handheldItem(DCItems.INFERNIUM_SHOVEL);
+        handheldItem(DCItems.INFERNIUM_PICKAXE);
+        handheldItem(DCItems.INFERNIUM_AXE);
+        handheldItem(DCItems.INFERNIUM_HOE);
     }
 
     private ItemModelBuilder complexBlock(Block block) {

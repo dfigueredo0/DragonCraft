@@ -1,5 +1,6 @@
 package com.elysiumgames.dragoncraft;
 
+import com.elysiumgames.dragoncraft.world.item.DCCreativeModeTab;
 import com.elysiumgames.dragoncraft.world.item.DCItems;
 import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
 import com.mojang.logging.LogUtils;
@@ -43,6 +44,7 @@ public class DragonCraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        DCCreativeModeTab.register(modEventBus);
 
         DCBlocks.register(modEventBus);
         DCItems.register(modEventBus);
@@ -58,15 +60,7 @@ public class DragonCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
 
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
     // Add the example block item to the building blocks tab
@@ -79,8 +73,7 @@ public class DragonCraft
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -90,9 +83,7 @@ public class DragonCraft
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
         }
     }
 }
