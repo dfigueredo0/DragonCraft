@@ -9,8 +9,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DCPoiTypesTagsProvider extends PoiTypeTagsProvider {
-    public DCPoiTypesTagsProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pCompletableFuture, @Nullable ExistingFileHelper existingFileHelper) {
+public class ModPoiTypesTagsProvider extends PoiTypeTagsProvider {
+    public ModPoiTypesTagsProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pCompletableFuture, @Nullable ExistingFileHelper existingFileHelper) {
         super(pOutput, pCompletableFuture, DragonCraft.MOD_ID, existingFileHelper);
     }
 

@@ -2,7 +2,8 @@ package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.utils.IAgeableCropBlock;
-import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
+import com.elysiumgames.dragoncraft.world.level.block.custom.DragonBallBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -17,38 +18,50 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
 
-public class DCBlockStateProvider extends BlockStateProvider {
-    public DCBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+public class ModBlockStateProvider extends BlockStateProvider {
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, DragonCraft.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
 
-        simpleBlock(DCBlocks.KORIN_PILLAR.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar")));
-        simpleBlock(DCBlocks.KORIN_PILLAR_1.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_1")));
-        simpleBlock(DCBlocks.KORIN_PILLAR_2.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_2")));
+        simpleBlock(ModBlocks.KORIN_PILLAR.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar")));
+        simpleBlock(ModBlocks.KORIN_PILLAR_1.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_1")));
+        simpleBlock(ModBlocks.KORIN_PILLAR_2.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_2")));
 
-        blockWithItem(DCBlocks.ELATOS_ORE);
-        blockWithItem(DCBlocks.DEEPSLATE_ELATOS_ORE);
-        blockWithItem(DCBlocks.HELL_ELATOS_ORE);
-        blockWithItem(DCBlocks.PARABELLUM_ORE);
-        blockWithItem(DCBlocks.DEEPSLATE_PARABELLUM_ORE);
-        blockWithItem(DCBlocks.END_STONE_PARABELLUM_ORE);
-        blockWithItem(DCBlocks.BLOOD_RUBY_ORE);
-        blockWithItem(DCBlocks.DEEPSLATE_BLOOD_RUBY_ORE);
-        blockWithItem(DCBlocks.HELL_BLOOD_RUBY_ORE);
-        blockWithItem(DCBlocks.HELL_INFERNIUM_ORE);
+        blockWithItem(ModBlocks.ELATOS_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_ELATOS_ORE);
+        blockWithItem(ModBlocks.HELL_ELATOS_ORE);
+        blockWithItem(ModBlocks.PARABELLUM_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_PARABELLUM_ORE);
+        blockWithItem(ModBlocks.END_STONE_PARABELLUM_ORE);
+        blockWithItem(ModBlocks.BLOOD_RUBY_ORE);
+        blockWithItem(ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE);
+        blockWithItem(ModBlocks.HELL_BLOOD_RUBY_ORE);
+        blockWithItem(ModBlocks.HELL_INFERNIUM_ORE);
         //blockWithItem(DCBlocks.ELATOS_BLOCK); // TODO: Make textures for commented out blocks
         //blockWithItem(DCBlocks.RAW_PARABELLUM_BLOCK);
         //blockWithItem(DCBlocks.PARABELLUM_BLOCK);
         //blockWithItem(DCBlocks.RUBY_BLOCK);
         //blockWithItem(DCBlocks.INFERNIUM_BLOCK);
         //blockWithItem(DCBlocks.KATCHIN_BLOCK);
-        blockWithItem(DCBlocks.GIZARD_DIRT);
-        blockWithItem(DCBlocks.DEFAULT_HELL);
-        blockWithItem(DCBlocks.JANEMBA_HELL);
+        blockWithItem(ModBlocks.GIZARD_DIRT);
+        blockWithItem(ModBlocks.DEFAULT_HELL);
+        blockWithItem(ModBlocks.JANEMBA_HELL);
 
+    }
+
+    private void dragonBallBlock() {
+        getVariantBuilder(ModBlocks.ELATOS_BLOCK.get()).forAllStates(state -> {
+            if (state.getValue(DragonBallBlock.CLICKED)) {
+               return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("dragon_ball_used",
+                       new ResourceLocation(DragonCraft.MOD_ID, "block/" + "dragon_ball_used")))};
+           } else {
+               return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("dragon_ball",
+                       new ResourceLocation(DragonCraft.MOD_ID, "block/" + "dragon_ball")))};
+           }
+        });
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {

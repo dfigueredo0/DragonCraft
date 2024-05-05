@@ -5,10 +5,12 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = DragonCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -20,23 +22,23 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new DCRecipeProvider(packOutput));
-        generator.addProvider(event.includeServer(), DCLootTableProvider.create(packOutput));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
+        ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
+                new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider,
+                blockTagGenerator.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));
+        generator.addProvider(event.includeServer(), new ModPoiTypesTagsProvider(packOutput, lookupProvider,
+                existingFileHelper));
 
-        generator.addProvider(event.includeClient(), new DCItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new DCBlockStateProvider(packOutput, existingFileHelper));
-
-        DCBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
-                new DCBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new DCItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
-
-        generator.addProvider(event.includeServer(), new DCGlobalLootModifiersProvider(packOutput));
-        generator.addProvider(event.includeServer(), new DCPoiTypesTagsProvider(packOutput, lookupProvider, existingFileHelper));
-
-        generator.addProvider(event.includeClient(), new DCSoundDefinitionsProvider(packOutput, existingFileHelper));
-
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModSoundDefinitionsProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new LangGenerator(packOutput, "en_us"));
-
-        generator.addProvider(event.includeServer(), new DCWorldGenProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeClient(), new ModPaintingVariantTagProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModFluidTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ForgeAdvancementProvider(packOutput, lookupProvider, existingFileHelper, List.of(new ModAdvancementProvider())));
     }
 }

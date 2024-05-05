@@ -1,7 +1,7 @@
 package com.elysiumgames.dragoncraft.datagen.loot;
 
-import com.elysiumgames.dragoncraft.world.item.DCItems;
-import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
+import com.elysiumgames.dragoncraft.world.item.ModItems;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -43,25 +43,25 @@ public class DCBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(DCBlocks.ELATOS_BLOCK.get());
-        this.dropSelf(DCBlocks.PARABELLUM_BLOCK.get());
-        this.dropSelf(DCBlocks.RAW_PARABELLUM_BLOCK.get());
-        this.dropSelf(DCBlocks.BLOOD_RUBY_BLOCK.get());
-        this.dropSelf(DCBlocks.INFERNIUM_BLOCK.get());
-        this.dropSelf(DCBlocks.DEFAULT_HELL.get());
-        this.dropSelf(DCBlocks.JANEMBA_HELL.get());
-        this.dropSelf(DCBlocks.GIZARD_DIRT.get());
+        this.dropSelf(ModBlocks.ELATOS_BLOCK.get());
+        this.dropSelf(ModBlocks.PARABELLUM_BLOCK.get());
+        this.dropSelf(ModBlocks.RAW_PARABELLUM_BLOCK.get());
+        this.dropSelf(ModBlocks.BLOOD_RUBY_BLOCK.get());
+        this.dropSelf(ModBlocks.INFERNIUM_BLOCK.get());
+        this.dropSelf(ModBlocks.DEFAULT_HELL.get());
+        this.dropSelf(ModBlocks.JANEMBA_HELL.get());
+        this.dropSelf(ModBlocks.GIZARD_DIRT.get());
 
-        this.add(DCBlocks.ELATOS_ORE.get(), block -> createOreDrop(DCBlocks.ELATOS_ORE.get(), DCItems.ELATOS.get()));
-        this.add(DCBlocks.DEEPSLATE_ELATOS_ORE.get(), block -> createOreDrop(DCBlocks.DEEPSLATE_ELATOS_ORE.get(), DCItems.ELATOS.get()));
-        this.add(DCBlocks.HELL_ELATOS_ORE.get(), block -> createOreDrop(DCBlocks.HELL_ELATOS_ORE.get(), DCItems.ELATOS.get()));
-        this.add(DCBlocks.PARABELLUM_ORE.get(), block -> createOreDrop(DCBlocks.PARABELLUM_ORE.get(), DCItems.RAW_PARABELLUM.get()));
-        this.add(DCBlocks.DEEPSLATE_PARABELLUM_ORE.get(), block -> createOreDrop(DCBlocks.PARABELLUM_ORE.get(), DCItems.RAW_PARABELLUM.get()));
-        this.add(DCBlocks.END_STONE_PARABELLUM_ORE.get(), block -> createOreDrop(DCBlocks.PARABELLUM_ORE.get(), DCItems.RAW_PARABELLUM.get()));
-        this.add(DCBlocks.BLOOD_RUBY_ORE.get(), block -> createOreDrop(DCBlocks.BLOOD_RUBY_ORE.get(), DCItems.BLOOD_RUBY.get()));
-        this.add(DCBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), block -> createOreDrop(DCBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), DCItems.BLOOD_RUBY.get()));
-        this.add(DCBlocks.HELL_BLOOD_RUBY_ORE.get(), block -> createOreDrop(DCBlocks.ELATOS_ORE.get(), DCItems.ELATOS.get()));
-        this.add(DCBlocks.HELL_INFERNIUM_ORE.get(), block -> createOreDrop(DCBlocks.ELATOS_ORE.get(), DCItems.ELATOS.get()));
+        this.add(ModBlocks.ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
+        this.add(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), ModItems.ELATOS.get()));
+        this.add(ModBlocks.HELL_ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.HELL_ELATOS_ORE.get(), ModItems.ELATOS.get()));
+        this.add(ModBlocks.PARABELLUM_ORE.get(), block -> createOreDrop(ModBlocks.PARABELLUM_ORE.get(), ModItems.RAW_PARABELLUM.get()));
+        this.add(ModBlocks.DEEPSLATE_PARABELLUM_ORE.get(), block -> createOreDrop(ModBlocks.PARABELLUM_ORE.get(), ModItems.RAW_PARABELLUM.get()));
+        this.add(ModBlocks.END_STONE_PARABELLUM_ORE.get(), block -> createOreDrop(ModBlocks.PARABELLUM_ORE.get(), ModItems.RAW_PARABELLUM.get()));
+        this.add(ModBlocks.BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.BLOOD_RUBY_ORE.get(), ModItems.BLOOD_RUBY.get()));
+        this.add(ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), ModItems.BLOOD_RUBY.get()));
+        this.add(ModBlocks.HELL_BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
+        this.add(ModBlocks.HELL_INFERNIUM_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
     }
 
     protected LootTable.Builder createManyOreDrops(Block pBlock, Item item, float pMin, float pMax) {
@@ -74,6 +74,6 @@ public class DCBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return DCBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }

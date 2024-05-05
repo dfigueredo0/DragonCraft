@@ -1,20 +1,16 @@
 package com.elysiumgames.dragoncraft;
 
-import com.elysiumgames.dragoncraft.world.item.DCCreativeModeTab;
-import com.elysiumgames.dragoncraft.world.item.DCItems;
-import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
+import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
+import com.elysiumgames.dragoncraft.fluid.ModFluids;
+import com.elysiumgames.dragoncraft.painting.ModPaintings;
+import com.elysiumgames.dragoncraft.particle.ModParticles;
+import com.elysiumgames.dragoncraft.sound.ModSounds;
+import com.elysiumgames.dragoncraft.world.item.ModCreativeModeTab;
+import com.elysiumgames.dragoncraft.world.item.ModItems;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,9 +23,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -44,10 +37,14 @@ public class DragonCraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        DCCreativeModeTab.register(modEventBus);
-
-        DCBlocks.register(modEventBus);
-        DCItems.register(modEventBus);
+        ModCreativeModeTab.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModSounds.register(modEventBus);
+        ModPaintings.register(modEventBus);
+        ModParticles.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -83,7 +80,8 @@ public class DragonCraft
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_HEALING_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_HEALING_WATER.get(), RenderType.translucent());
         }
     }
 }

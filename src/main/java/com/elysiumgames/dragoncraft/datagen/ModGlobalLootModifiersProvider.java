@@ -4,8 +4,8 @@ import com.elysiumgames.dragoncraft.DragonCraft;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 
-public class DCGlobalLootModifiersProvider extends GlobalLootModifierProvider {
-    public DCGlobalLootModifiersProvider(PackOutput output) {
+public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
+    public ModGlobalLootModifiersProvider(PackOutput output) {
         super(output, DragonCraft.MOD_ID);
     }
 

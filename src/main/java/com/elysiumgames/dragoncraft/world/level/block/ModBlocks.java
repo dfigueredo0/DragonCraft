@@ -1,13 +1,15 @@
 package com.elysiumgames.dragoncraft.world.level.block;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.world.item.DCItems;
+import com.elysiumgames.dragoncraft.fluid.ModFluids;
+import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.custom.ClimbablePillarBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,7 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class DCBlocks {
+public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DragonCraft.MOD_ID);
 
     //Ores
@@ -55,19 +57,23 @@ public class DCBlocks {
     public static final RegistryObject<Block> JANEMBA_HELL = registerBlock("janemba_hell",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    //Fluids
+    public static final RegistryObject<LiquidBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_HEALING_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+
     //Others
     public static final RegistryObject<Block> KATCHIN_BLOCK = registerBlock("katchin_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BEDROCK).noLootTable()));
 
     //Korin Tower TODO: Make Climbable
-    public static final RegistryObject<LadderBlock> KORIN_PILLAR = registerBlock("korin_pillar",
-            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion()
+    public static final RegistryObject<Block> KORIN_PILLAR = registerBlock("korin_pillar",
+            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.of().noLootTable().noOcclusion().pushReaction(PushReaction.DESTROY)
                     .strength(-1.0F, 1024.0F).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
-    public static final RegistryObject<LadderBlock> KORIN_PILLAR_1  = registerBlock("korin_pillar_1",
-            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion().noLootTable().noOcclusion()
+    public static final RegistryObject<Block> KORIN_PILLAR_1  = registerBlock("korin_pillar_1",
+            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion().noLootTable()
                     .strength(-1.0F, 1024.0F).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
-    public static final RegistryObject<LadderBlock> KORIN_PILLAR_2  = registerBlock("korin_pillar_2",
-            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion().noLootTable().noOcclusion()
+    public static final RegistryObject<Block> KORIN_PILLAR_2  = registerBlock("korin_pillar_2",
+            () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion().noLootTable()
                     .strength(-1.0F, 1024.0F).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
@@ -77,7 +83,7 @@ public class DCBlocks {
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return DCItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

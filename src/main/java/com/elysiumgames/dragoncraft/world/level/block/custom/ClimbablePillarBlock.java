@@ -5,13 +5,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LadderBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ClimbablePillarBlock extends LadderBlock implements SimpleWaterloggedBlock {
+public class ClimbablePillarBlock extends Block {
 
     public ClimbablePillarBlock(Properties pProperties) {
         super(pProperties);
@@ -27,8 +27,15 @@ public class ClimbablePillarBlock extends LadderBlock implements SimpleWaterlogg
         return true;
     }
 
+
     @Override
     public boolean isLadder(BlockState state, LevelReader level, BlockPos pos, LivingEntity entity) {
+        if (entity.horizontalCollision) {
+            Vec3 initialVec = entity.getDeltaMovement();
+            Vec3 climbVec = new Vec3(initialVec.x, initialVec.y + 0.2D, initialVec.z);
+            entity.setDeltaMovement(climbVec.x, climbVec.y, climbVec.z);
+            return true;
+        }
         return true;
     }
 

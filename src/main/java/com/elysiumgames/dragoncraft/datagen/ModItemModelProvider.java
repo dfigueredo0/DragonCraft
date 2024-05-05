@@ -1,8 +1,8 @@
 package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.world.item.DCItems;
-import com.elysiumgames.dragoncraft.world.level.block.DCBlocks;
+import com.elysiumgames.dragoncraft.world.item.ModItems;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.LinkedHashMap;
 
-public class DCItemModelProvider extends ItemModelProvider {
+public class ModItemModelProvider extends ItemModelProvider {
     private static final LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1f);
@@ -36,41 +36,61 @@ public class DCItemModelProvider extends ItemModelProvider {
         trimMaterials.put(TrimMaterials.AMETHYST, 1.0f);
     }
 
-    public DCItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, DragonCraft.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
-        complexBlock(DCBlocks.KORIN_PILLAR.get());
-        complexBlock(DCBlocks.KORIN_PILLAR_1.get());
-        complexBlock(DCBlocks.KORIN_PILLAR_2.get());
+        complexBlock(ModBlocks.KORIN_PILLAR.get());
+        complexBlock(ModBlocks.KORIN_PILLAR_1.get());
+        complexBlock(ModBlocks.KORIN_PILLAR_2.get());
 
-        simpleItem(DCItems.ELATOS);
-        simpleItem(DCItems.RAW_PARABELLUM);
-        simpleItem(DCItems.PARABELLUM_INGOT);
-        simpleItem(DCItems.BLOOD_RUBY);
-        simpleItem(DCItems.INFERNIUM);
-        simpleItem(DCItems.KATCHIN);
-        simpleItem(DCItems.DINOSAUR_MEAT);
-        simpleItem(DCItems.COOK_DINOSAUR_MEAT);
-        simpleItem(DCItems.RADISH);
+        simpleItem(ModItems.ELATOS);
+        simpleItem(ModItems.RAW_PARABELLUM);
+        simpleItem(ModItems.PARABELLUM_INGOT);
+        simpleItem(ModItems.BLOOD_RUBY);
+        simpleItem(ModItems.INFERNIUM);
+        simpleItem(ModItems.KATCHIN);
+        simpleItem(ModItems.DINOSAUR_MEAT);
+        simpleItem(ModItems.COOK_DINOSAUR_MEAT);
+        simpleItem(ModItems.RADISH);
 
-        handheldItem(DCItems.BLOOD_RUBY_SWORD);
-        handheldItem(DCItems.BLOOD_RUBY_SHOVEL);
-        handheldItem(DCItems.BLOOD_RUBY_PICKAXE);
-        handheldItem(DCItems.BLOOD_RUBY_AXE);
-        handheldItem(DCItems.BLOOD_RUBY_HOE);
-        handheldItem(DCItems.PARABELLUM_SWORD);
-        handheldItem(DCItems.PARABELLUM_SHOVEL);
-        handheldItem(DCItems.PARABELLUM_PICKAXE);
-        handheldItem(DCItems.PARABELLUM_AXE);
-        handheldItem(DCItems.PARABELLUM_HOE);
-        handheldItem(DCItems.INFERNIUM_SWORD);
-        handheldItem(DCItems.INFERNIUM_SHOVEL);
-        handheldItem(DCItems.INFERNIUM_PICKAXE);
-        handheldItem(DCItems.INFERNIUM_AXE);
-        handheldItem(DCItems.INFERNIUM_HOE);
+        handheldItem(ModItems.BLOOD_RUBY_SWORD);
+        handheldItem(ModItems.BLOOD_RUBY_SHOVEL);
+        handheldItem(ModItems.BLOOD_RUBY_PICKAXE);
+        handheldItem(ModItems.BLOOD_RUBY_AXE);
+        handheldItem(ModItems.BLOOD_RUBY_HOE);
+        handheldItem(ModItems.PARABELLUM_SWORD);
+        handheldItem(ModItems.PARABELLUM_SHOVEL);
+        handheldItem(ModItems.PARABELLUM_PICKAXE);
+        handheldItem(ModItems.PARABELLUM_AXE);
+        handheldItem(ModItems.PARABELLUM_HOE);
+        handheldItem(ModItems.INFERNIUM_SWORD);
+        handheldItem(ModItems.INFERNIUM_SHOVEL);
+        handheldItem(ModItems.INFERNIUM_PICKAXE);
+        handheldItem(ModItems.INFERNIUM_AXE);
+        handheldItem(ModItems.INFERNIUM_HOE);
+
+        simpleItem(ModItems.BLOOD_RUBY_HELMET);
+        simpleItem(ModItems.BLOOD_RUBY_CHESTPLATE);
+        simpleItem(ModItems.BLOOD_RUBY_LEGGINGS);
+        simpleItem(ModItems.BLOOD_RUBY_BOOTS);
+        simpleItem(ModItems.PARABELLUM_HELMET);
+        simpleItem(ModItems.PARABELLUM_CHESTPLATE);
+        simpleItem(ModItems.PARABELLUM_LEGGINGS);
+        simpleItem(ModItems.PARABELLUM_BOOTS);
+        simpleItem(ModItems.INFERNIUM_HELMET);
+        simpleItem(ModItems.INFERNIUM_CHESTPLATE);
+        simpleItem(ModItems.INFERNIUM_LEGGINGS);
+        simpleItem(ModItems.INFERNIUM_BOOTS);
+
+        simpleItem(ModItems.HEALING_WATER_BUCKET);
+
+        simpleItem(ModItems.CHA_LA_RECORD);
+        simpleItem(ModItems.CHOZETSU_DYNAMIC_RECORD);
+        simpleItem(ModItems.DRAGON_SOUL_RECORD);
+        simpleItem(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD);
     }
 
     private ItemModelBuilder complexBlock(Block block) {
@@ -85,7 +105,7 @@ public class DCItemModelProvider extends ItemModelProvider {
     }
 
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
-        final String MOD_ID = DragonCraft.MOD_ID; // Change this to your mod id
+        final String MOD_ID = DragonCraft.MOD_ID;
 
         if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
             trimMaterials.entrySet().forEach(entry -> {
@@ -108,17 +128,13 @@ public class DCItemModelProvider extends ItemModelProvider {
                 ResourceLocation trimResLoc = new ResourceLocation(trimPath); // minecraft namespace
                 ResourceLocation trimNameResLoc = new ResourceLocation(MOD_ID, currentTrimName);
 
-                // This is used for making the ExistingFileHelper acknowledge that this texture exist, so this will
-                // avoid an IllegalArgumentException
                 existingFileHelper.trackGenerated(trimResLoc, PackType.CLIENT_RESOURCES, ".png", "textures");
 
-                // Trimmed armorItem files
                 getBuilder(currentTrimName)
                         .parent(new ModelFile.UncheckedModelFile("item/generated"))
                         .texture("layer0", armorItemResLoc)
                         .texture("layer1", trimResLoc);
 
-                // Non-trimmed armorItem file (normal variant)
                 this.withExistingParent(itemRegistryObject.getId().getPath(),
                                 mcLoc("item/generated"))
                         .override()
