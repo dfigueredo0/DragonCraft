@@ -18,7 +18,7 @@ public class ModFluidTypes {
 
     public static final RegistryObject<FluidType> HEALING_WATER_FLUID_TYPE = registerFluidType("healing_water_fluid",
             new BaseFluidType(FluidType.Properties.create().lightLevel(2).viscosity(5).density(15),
-                    WATER_STILL_RL, WATER_FLOWING_RL, WATER_OVERLAY_RL, 0xA14DFF4D, new Vector3f(77.0F / 255.0F, 1.0f, 77.0F / 255.0F)))
+                    WATER_STILL_RL, WATER_FLOWING_RL, WATER_OVERLAY_RL, 0xA14DFF4D, new Vector3f(77.0F / 255.0F, 1.0f, 77.0F / 255.0F)));
 
     private static RegistryObject<FluidType> registerFluidType(String name, FluidType fluidType) {
         return FLUID_TYPES.register(name, () -> fluidType);
