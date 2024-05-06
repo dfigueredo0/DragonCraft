@@ -1,0 +1,38 @@
+{
+  "cha_la_head_cha_la": {
+    "sounds": [
+      {
+        "name": "dragoncraft:cha_la_head_cha_la",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.dragoncraft.cha_la_record"
+  },
+  "chozetsu_dynamic": {
+    "sounds": [
+      {
+        "name": "dragoncraft:chozetsu_dynamic",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.dragoncraft.chozetsu_dynamic_record"
+  },
+  "dragon_soul": {
+    "sounds": [
+      {
+        "name": "dragoncraft:dragon_soul",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.dragoncraft.dragon_soul_record"
+  },
+  "makafushigi_adventure": {
+    "sounds": [
+      {
+        "name": "dragoncraft:makafushigi_adventure",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.dragoncraft.makafushigi_adventure_record"
+  }
+}

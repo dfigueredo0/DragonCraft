@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "elatos",
+  "ingredients": [
+    {
+      "item": "dragoncraft:elatos_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dragoncraft:elatos"
+  }
+}

@@ -91,6 +91,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHOZETSU_DYNAMIC_RECORD);
         simpleItem(ModItems.DRAGON_SOUL_RECORD);
         simpleItem(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD);
+
+        saplingItem(ModBlocks.AJISA_SAPLING);
     }
 
     private ItemModelBuilder complexBlock(Block block) {

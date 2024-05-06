@@ -2,6 +2,7 @@ package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -39,6 +40,15 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.CHOZETSU_DYNAMIC_RECORD.get(),
                         ModItems.DRAGON_SOUL_RECORD.get(),
                         ModItems.MAKAFUSHIGI_ADVENTURE_RECORD.get());
+
+        this.tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.AJISA_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_AJISA_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_AJISA_LOG.get().asItem())
+                .add(ModBlocks.AJISA_WOOD.get().asItem());
+
+        this.tag(ItemTags.PLANKS)
+                .add(ModBlocks.AJISA_PLANKS.get().asItem());
     }
 
     @Override

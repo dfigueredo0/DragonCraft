@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "parabellum",
+  "key": {
+    "#": {
+      "item": "dragoncraft:raw_parabellum"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "dragoncraft:raw_parabellum_block"
+  },
+  "show_notification": true
+}

@@ -53,6 +53,17 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(DCTags.Blocks.NEEDS_PARABELLUM_TOOLS)
                 .add(ModBlocks.HELL_INFERNIUM_ORE.get(),
                         ModBlocks.INFERNIUM_BLOCK.get());
+
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.AJISA_LOG.get())
+                .add(ModBlocks.AJISA_WOOD.get())
+                .add(ModBlocks.STRIPPED_AJISA_LOG.get())
+                .add(ModBlocks.STRIPPED_AJISA_WOOD.get());
+
+        this.tag(BlockTags.PLANKS)
+                .add(ModBlocks.AJISA_PLANKS.get());
+
+
     }
 
     @Override

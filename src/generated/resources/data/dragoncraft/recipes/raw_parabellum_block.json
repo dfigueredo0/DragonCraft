@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "parabellum",
+  "ingredients": [
+    {
+      "item": "dragoncraft:raw_parabellum_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dragoncraft:raw_parabellum"
+  }
+}

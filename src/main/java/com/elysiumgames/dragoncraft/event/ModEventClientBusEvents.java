@@ -12,6 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 public class ModEventClientBusEvents {
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ModParticles.BEYOND_SS_PARTICLES.get(), BeyondSuperSaiyanParticles.Provider::new);
+        //event.registerSpriteSet(ModParticles.BEYOND_SS_PARTICLES.get(), BeyondSuperSaiyanParticles.Provider::new);
     }
 }

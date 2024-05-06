@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "dragoncraft:item/blood_ruby_pickaxe"
+  }
+}

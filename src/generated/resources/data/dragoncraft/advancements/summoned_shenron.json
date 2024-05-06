@@ -1,0 +1,40 @@
+{
+  "parent": "dragoncraft:dragoncraft",
+  "criteria": {
+    "summoned_shenron": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:summoned_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "text": "I Wish for the World's Most Comfortable Pair of Ultra-soft Underwear"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dragoncraft:blood_ruby"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Summon Shenron the Eternal Dragon"
+    }
+  },
+  "requirements": [
+    [
+      "summoned_shenron"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

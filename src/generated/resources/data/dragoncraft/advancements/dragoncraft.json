@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "created_character": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dragoncraft:blood_ruby"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "dragoncraft:textures/block/janemba_hell.png",
+    "description": {
+      "text": "Dragon Ball Z"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "dragoncraft:blood_ruby"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Dragon Craft"
+    }
+  },
+  "requirements": [
+    [
+      "created_character"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

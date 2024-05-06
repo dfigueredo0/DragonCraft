@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "infernium",
+  "ingredients": [
+    {
+      "item": "dragoncraft:infernium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dragoncraft:infernium"
+  }
+}

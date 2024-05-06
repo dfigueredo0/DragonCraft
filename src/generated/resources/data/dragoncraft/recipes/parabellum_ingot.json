@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "parabellum",
+  "key": {
+    "#": {
+      "item": "dragoncraft:parabellum_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "dragoncraft:parabellum_block"
+  },
+  "show_notification": true
+}

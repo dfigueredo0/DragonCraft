@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "blood_ruby",
+  "key": {
+    "#": {
+      "item": "dragoncraft:blood_ruby"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "dragoncraft:blood_ruby_block"
+  },
+  "show_notification": true
+}

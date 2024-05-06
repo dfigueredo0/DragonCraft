@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "infernium",
+  "key": {
+    "#": {
+      "item": "dragoncraft:infernium"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "dragoncraft:infernium_block"
+  },
+  "show_notification": true
+}

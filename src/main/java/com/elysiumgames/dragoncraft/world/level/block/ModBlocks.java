@@ -4,11 +4,16 @@ import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.custom.ClimbablePillarBlock;
+import com.elysiumgames.dragoncraft.world.level.block.custom.ModFlammableRotatedPillarBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -49,21 +54,63 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLOOD_RUBY_BLOCK = registerBlock("blood_ruby_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> INFERNIUM_BLOCK = registerBlock("infernium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
-    //Biome Blocks
+    //Blocks
     public static final RegistryObject<Block> GIZARD_DIRT = registerBlock("gizard_dirt",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
     public static final RegistryObject<Block> DEFAULT_HELL = registerBlock("default_hell",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
     public static final RegistryObject<Block> JANEMBA_HELL = registerBlock("janemba_hell",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> KATCHIN_BLOCK = registerBlock("katchin_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BEDROCK).noLootTable()));
+    public static final RegistryObject<Block> AJISA_LOG = registerBlock("ajisa_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+    public static final RegistryObject<Block> AJISA_WOOD = registerBlock("ajisa_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_AJISA_LOG = registerBlock("stripped_ajisa_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<Block> STRIPPED_AJISA_WOOD = registerBlock("stripped_ajisa_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
+    public static final RegistryObject<Block> AJISA_PLANKS = registerBlock("ajisa_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+    public static final RegistryObject<Block> AJISA_LEAVES = registerBlock("ajisa_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+    public static final RegistryObject<Block> AJISA_SAPLING = registerBlock("ajisa_sapling",
+            () -> new SaplingBlock(null, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     //Fluids
     public static final RegistryObject<LiquidBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",
             () -> new LiquidBlock(ModFluids.SOURCE_HEALING_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
-
-    //Others
-    public static final RegistryObject<Block> KATCHIN_BLOCK = registerBlock("katchin_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BEDROCK).noLootTable()));
 
     //Korin Tower TODO: Make Climbable
     public static final RegistryObject<Block> KORIN_PILLAR = registerBlock("korin_pillar",

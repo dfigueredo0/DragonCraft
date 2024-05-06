@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "blood_ruby",
+  "ingredients": [
+    {
+      "item": "dragoncraft:blood_ruby_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "dragoncraft:blood_ruby"
+  }
+}

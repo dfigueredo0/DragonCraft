@@ -80,6 +80,11 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.PARABELLUM_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_PARABELLUM_ORE.get());
                         output.accept(ModBlocks.END_STONE_PARABELLUM_ORE.get());
+
+                        output.accept(ModBlocks.AJISA_LOG.get());
+                        output.accept(ModBlocks.STRIPPED_AJISA_LOG.get());
+                        output.accept(ModBlocks.AJISA_PLANKS.get());
+                        output.accept(ModBlocks.AJISA_LEAVES.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

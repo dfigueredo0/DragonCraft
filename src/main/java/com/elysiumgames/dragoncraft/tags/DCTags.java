@@ -19,7 +19,6 @@ public class DCTags {
     }
 
     public static class Blocks {
-        public static final TagKey<Block> VALUABLES = tag("valuables");
         public static final TagKey<Block> NEEDS_INFERNIUM_TOOL = tag("needs_infernium_tools");
         public static final TagKey<Block> NEEDS_PARABELLUM_TOOLS = tag("needs_parabellum_tools");
         public static final TagKey<Block> NEEDS_BLOOD_RUBY_TOOLS = tag("needs_blood_ruby_tools");

@@ -8,6 +8,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -49,6 +50,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.GIZARD_DIRT);
         blockWithItem(ModBlocks.DEFAULT_HELL);
         blockWithItem(ModBlocks.JANEMBA_HELL);
+        logBlock((RotatedPillarBlock) ModBlocks.AJISA_LOG.get());
+        axisBlock((RotatedPillarBlock) ModBlocks.AJISA_WOOD.get(), blockTexture(ModBlocks.AJISA_LOG.get()), blockTexture(ModBlocks.AJISA_LOG.get()));
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_AJISA_LOG.get(), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log"), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log_top"));
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_AJISA_WOOD.get(), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log"), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log"));
+        blockItem(ModBlocks.AJISA_LOG);
+        blockItem(ModBlocks.AJISA_WOOD);
+        blockItem(ModBlocks.STRIPPED_AJISA_WOOD);
+        blockItem(ModBlocks.STRIPPED_AJISA_LOG);
+        leavesBlock(ModBlocks.AJISA_LEAVES);
+        blockWithItem(ModBlocks.AJISA_PLANKS);
+        saplingBlock(ModBlocks.AJISA_SAPLING);
 
     }
 

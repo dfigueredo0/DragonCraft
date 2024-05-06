@@ -42,7 +42,7 @@ public class DragonCraft
         ModItems.register(modEventBus);
         ModSounds.register(modEventBus);
         ModPaintings.register(modEventBus);
-        ModParticles.register(modEventBus);
+        //ModParticles.register(modEventBus);
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
 

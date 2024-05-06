@@ -51,6 +51,12 @@ public class DCBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.DEFAULT_HELL.get());
         this.dropSelf(ModBlocks.JANEMBA_HELL.get());
         this.dropSelf(ModBlocks.GIZARD_DIRT.get());
+        this.dropSelf(ModBlocks.AJISA_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_AJISA_LOG.get());
+        this.dropSelf(ModBlocks.AJISA_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_AJISA_WOOD.get());
+        this.dropSelf(ModBlocks.AJISA_PLANKS.get());
+        this.dropSelf(ModBlocks.AJISA_SAPLING.get());
 
         this.add(ModBlocks.ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
         this.add(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), ModItems.ELATOS.get()));
@@ -62,6 +68,7 @@ public class DCBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(), ModItems.BLOOD_RUBY.get()));
         this.add(ModBlocks.HELL_BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
         this.add(ModBlocks.HELL_INFERNIUM_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
+        this.add(ModBlocks.AJISA_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.AJISA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
     }
 
     protected LootTable.Builder createManyOreDrops(Block pBlock, Item item, float pMin, float pMax) {

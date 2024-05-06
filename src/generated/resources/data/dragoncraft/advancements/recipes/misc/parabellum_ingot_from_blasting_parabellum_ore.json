@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_parabellum_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "dragoncraft:parabellum_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dragoncraft:parabellum_ingot_from_blasting_parabellum_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_parabellum_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dragoncraft:parabellum_ingot_from_blasting_parabellum_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

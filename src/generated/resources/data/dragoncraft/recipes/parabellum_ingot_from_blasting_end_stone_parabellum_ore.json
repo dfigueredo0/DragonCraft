@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "group": "parabellum",
+  "ingredient": {
+    "item": "dragoncraft:end_stone_parabellum_ore"
+  },
+  "result": "dragoncraft:parabellum_ingot"
+}

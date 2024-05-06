@@ -10,6 +10,7 @@ import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fml.common.Mod;
 
 public class LangGenerator extends LanguageProvider {
     public LangGenerator(PackOutput pOutput, String locale) {
@@ -39,6 +40,13 @@ public class LangGenerator extends LanguageProvider {
 
         add(ModBlocks.KATCHIN_BLOCK.get(), "Katchin Block");
 
+        add(ModBlocks.AJISA_LOG.get(), "Ajisa Log");
+        add(ModBlocks.STRIPPED_AJISA_LOG.get(), "Stripped Ajisa Log");
+        add(ModBlocks.AJISA_WOOD.get(), "Ajisa Wood");
+        add(ModBlocks.STRIPPED_AJISA_WOOD.get(), "Stripped Ajisa Wood");
+        add(ModBlocks.AJISA_PLANKS.get(), "Ajisa Planks");
+        add(ModBlocks.AJISA_SAPLING.get(), "Ajisa Sapling");
+
         add(ModItems.DINOSAUR_MEAT.get(), "Dinosaur Meat");
         add(ModItems.COOK_DINOSAUR_MEAT.get(), "Cooked Dinosaur Meat");
         add(ModItems.RADISH.get(), "Radish");
@@ -58,48 +66,47 @@ public class LangGenerator extends LanguageProvider {
         add(ModItems.PARABELLUM_SHOVEL.get(), "Parabellum Shovel");
         add(ModItems.PARABELLUM_PICKAXE.get(), "Parabellum Pickaxe");
         add(ModItems.PARABELLUM_AXE.get(), "Parabellum Axe");
-        add(ModItems.INFERNIUM_HOE.get(), "Parabellum Hoe");
+        add(ModItems.PARABELLUM_HOE.get(), "Parabellum Hoe");
         add(ModItems.INFERNIUM_SWORD.get(), "Infernium Sword");
         add(ModItems.INFERNIUM_SHOVEL.get(), "Infernium Shovel");
         add(ModItems.INFERNIUM_PICKAXE.get(), "Infernium Pickaxe");
         add(ModItems.INFERNIUM_AXE.get(), "Infernium Axe");
         add(ModItems.INFERNIUM_HOE.get(), "Infernium Hoe");
 
+        add(ModItems.BLOOD_RUBY_HELMET.get(), "Blood Ruby Helmet");
+        add(ModItems.BLOOD_RUBY_CHESTPLATE.get(), "Blood Ruby Chestplate");
+        add(ModItems.BLOOD_RUBY_LEGGINGS.get(), "Blood Ruby Leggings");
+        add(ModItems.BLOOD_RUBY_BOOTS.get(), "Blood Ruby Boots");
+        add(ModItems.PARABELLUM_HELMET.get(), "Parabellum Helmet");
+        add(ModItems.PARABELLUM_CHESTPLATE.get(), "Parabellum Chestplate");
+        add(ModItems.PARABELLUM_LEGGINGS.get(), "Parabellum Leggings");
+        add(ModItems.PARABELLUM_BOOTS.get(), "Parabellum Boots");
+        add(ModItems.INFERNIUM_HELMET.get(), "Infernium Helmet");
+        add(ModItems.INFERNIUM_CHESTPLATE.get(), "Infernium Chestplate");
+        add(ModItems.INFERNIUM_LEGGINGS.get(), "Infernium Leggings");
+        add(ModItems.INFERNIUM_BOOTS.get(), "Infernium Boots");
+
         add(ModItems.HEALING_WATER_BUCKET.get(), "Healing Water Bucket");
 
-        add(ModItems.CHA_LA_RECORD.get(), "Cha La Head Cha La Record");
-        addRecordDescription(ModItems.CHA_LA_RECORD.get(), "Hironobu Kageyama - Cha-La Head Cha-La");
-        add(ModItems.CHOZETSU_DYNAMIC_RECORD.get(), "Chōzetsu ☆ Dynamic! Record");
-        addRecordDescription(ModItems.CHOZETSU_DYNAMIC_RECORD.get(), "Kazuya Yoshii - Chōzetsu ☆ Dynamic!");
-        add(ModItems.DRAGON_SOUL_RECORD.get(), "Dragon Soul Record");
-        addRecordDescription(ModItems.DRAGON_SOUL_RECORD.get(), "Takayoshi Tanimoto - Dragon Soul");
-        add(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD.get(), "Makafushigi Adventure Record");
-        addRecordDescription(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD.get(), "Hiroki Takahashi - Makafushigi Adventure");
+        addRecord(ModItems.CHA_LA_RECORD.get(), "Cha La Head Cha La Record","Hironobu Kageyama - Cha-La Head Cha-La" );
+        addRecord(ModItems.CHOZETSU_DYNAMIC_RECORD.get(), "Chōzetsu ☆ Dynamic! Record", "Kazuya Yoshii - Chōzetsu ☆ Dynamic!");
+        addRecord(ModItems.DRAGON_SOUL_RECORD.get(), "Dragon Soul Record", "Takayoshi Tanimoto - Dragon Soul");
+        addRecord(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD.get(), "Makafushigi Adventure Record", "Hiroki Takahashi - Makafushigi Adventure");
 
-        addPainting(ModPaintings.ARTWORK_93.get(), "Artwork 93", "Xenoverse 2");
-
-        addPotion(ModPotions.DIVINE_WATER.get(), "Divine Water");
-        addPotion(ModPotions.ULTRA_DIVINE_WATER.get(), "Ultra Divine Water");
+        addPainting(ModPaintings.ARTWORK_93.getId().toString(), "Artwork 93", "Xenoverse 2");
 
         add("creativetab.dragoncraft_tab", "Dragon Craft");
     }
 
-    private void addPotion(Potion key, String name) {
-        String potionId = key.toString().substring(29);
-        String[] pName = name.split(" ");
-        String splash = pName[0] + "Splash" + pName[pName.length - 1];
-        String lingering = pName[0] + "Lingering" + pName[pName.length - 1];
-        add(key.toString(), name);
-        add("item.minecraft.splash_potion.effect.dragoncraft" + potionId, splash);
-        add("item.minecraft.lingering_potion.effect.dragoncraft" + potionId, lingering);
+    private void addPainting(String key, String title, String author) {
+        key = key.replace(":", ".");
+
+        add("painting." + key + ".title", title);
+        add("painting." + key + ".author", author);
     }
 
-    private void addPainting(PaintingVariant key, String pName, String pAuthor) {
-        add(key + ".title", pName);
-        add(key + ".author", pAuthor);
-    }
-
-    private void addRecordDescription(Item key, String name) {
-        add(key + ".desc", name);
+    private void addRecord(Item key, String name, String description) {
+        add(key.getDescriptionId(), name);
+        add(key.getDescriptionId() + ".desc", description);
     }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dragoncraft:block/stripped_ajisa_log",
+    "side": "dragoncraft:block/stripped_ajisa_log"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "parabellum",
+  "ingredient": {
+    "item": "dragoncraft:raw_parabellum"
+  },
+  "result": "dragoncraft:parabellum_ingot"
+}
