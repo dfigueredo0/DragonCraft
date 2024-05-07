@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#dragoncraft:is_namek",
-  "features": "dragoncraft:ajisa_placed",
+  "features": "dragoncraft:ajisa_plains_placed",
   "step": "vegetal_decoration"
 }

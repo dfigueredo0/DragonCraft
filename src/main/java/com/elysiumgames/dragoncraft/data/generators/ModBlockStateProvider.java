@@ -48,6 +48,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.GIZARD_DIRT);
         blockWithItem(ModBlocks.DEFAULT_HELL);
         blockWithItem(ModBlocks.JANEMBA_HELL);
+        blockWithItem(ModBlocks.NAMEK_PORTAL);
         logBlock((RotatedPillarBlock) ModBlocks.AJISA_LOG.get());
         axisBlock((RotatedPillarBlock) ModBlocks.AJISA_WOOD.get(), blockTexture(ModBlocks.AJISA_LOG.get()), blockTexture(ModBlocks.AJISA_LOG.get()));
         axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_AJISA_LOG.get(), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log"), new ResourceLocation(DragonCraft.MOD_ID, "block/stripped_ajisa_log_top"));

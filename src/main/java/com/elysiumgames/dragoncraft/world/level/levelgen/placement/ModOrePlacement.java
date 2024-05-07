@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.data.worldgen.placement;
+package com.elysiumgames.dragoncraft.world.level.levelgen.placement;
 
 import net.minecraft.world.level.levelgen.placement.*;
 

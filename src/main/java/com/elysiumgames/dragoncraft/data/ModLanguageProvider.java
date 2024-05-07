@@ -4,6 +4,7 @@ import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
+import com.elysiumgames.dragoncraft.world.level.biome.ModBiomes;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
@@ -46,6 +47,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.AJISA_LEAVES.get(), "Ajisa Leaves");
         add(ModBlocks.AJISA_SIGN.get(), "Ajisa Sign");
         add(ModBlocks.AJISA_HANGING_SIGN.get(), "Ajisa Hanging Sign");
+
+        add(ModBlocks.NAMEK_PORTAL.get(), "Namek Portal");
 
         add(ModItems.DINOSAUR_MEAT.get(), "Dinosaur Meat");
         add(ModItems.COOK_DINOSAUR_MEAT.get(), "Cooked Dinosaur Meat");
@@ -96,9 +99,17 @@ public class ModLanguageProvider extends LanguageProvider {
 
         addPainting(ModPaintings.ARTWORK_93.getId().toString(), "Artwork 93", "Xenoverse 2");
 
+        addBiome(ModBiomes.GIZARD_WASTELAND.location().toLanguageKey(), "Gizard Wasteland");
+        addBiome(ModBiomes.NAMEKIAN_PLAINS.location().toLanguageKey(), "Namekian Plains");
+        addBiome(ModBiomes.NAMEKIAN_OCEANS.location().toLanguageKey(), "Namekian Ocean");
+
         add(ModFluidTypes.HEALING_WATER_FLUID_TYPE.get().getDescriptionId(), "Healing Water");
 
         add("creativetab.dragoncraft_tab", "Dragon Craft");
+    }
+
+    private void addBiome(String key, String name) {
+        add("biome." + key, name);
     }
 
     private void addPainting(String key, String title, String author) {

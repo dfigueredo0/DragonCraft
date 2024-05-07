@@ -118,6 +118,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> AJISA_WALL_HANGING_SIGN = BLOCKS.register("ajisa_wall_hanging_sign",
             () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.AJISA));
 
+    public static final RegistryObject<Block> NAMEK_PORTAL = registerBlock("namek_portal", () -> new NamekPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noLootTable()));
+
     //Fluids
     public static final RegistryObject<LiquidBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",
             () -> new LiquidBlock(ModFluids.SOURCE_HEALING_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));

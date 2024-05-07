@@ -2,6 +2,8 @@ package com.elysiumgames.dragoncraft.data;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.world.ModBiomeModifiers;
+import com.elysiumgames.dragoncraft.world.dimension.ModDimensions;
+import com.elysiumgames.dragoncraft.world.level.biome.ModBiomes;
 import com.elysiumgames.dragoncraft.world.level.levelgen.feature.ModConfiguredFeatures;
 import com.elysiumgames.dragoncraft.world.level.levelgen.placement.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;
@@ -18,6 +20,9 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
+            .add(Registries.BIOME, ModBiomes::bootstrap)
+            .add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem)
+            .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
 
     public ModWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
