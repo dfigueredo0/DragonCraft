@@ -6,9 +6,7 @@ import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import com.elysiumgames.dragoncraft.world.level.block.custom.DragonBallBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -61,7 +59,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         leavesBlock(ModBlocks.AJISA_LEAVES);
         blockWithItem(ModBlocks.AJISA_PLANKS);
         saplingBlock(ModBlocks.AJISA_SAPLING);
-
+        signBlock((StandingSignBlock) ModBlocks.AJISA_SIGN.get(), (WallSignBlock) ModBlocks.AJISA_WALL_SIGN.get(), blockTexture(ModBlocks.AJISA_PLANKS.get()));
+        hangingSignBlock(ModBlocks.AJISA_HANGING_SIGN.get(), ModBlocks.AJISA_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.AJISA_PLANKS.get()));
     }
 
     private void dragonBallBlock() {

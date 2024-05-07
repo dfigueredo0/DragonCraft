@@ -93,6 +93,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD);
 
         saplingItem(ModBlocks.AJISA_SAPLING);
+
+        simpleItem(ModItems.AJISA_SIGN);
+        simpleItem(ModItems.AJISA_HANGING_SIGN);
     }
 
     private ItemModelBuilder complexBlock(Block block) {

@@ -5,12 +5,16 @@ import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
 import com.elysiumgames.dragoncraft.particle.ModParticles;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
+import com.elysiumgames.dragoncraft.utils.ModWoodTypes;
 import com.elysiumgames.dragoncraft.world.item.ModCreativeModeTab;
+import com.elysiumgames.dragoncraft.world.item.ModItemProperties;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
+import com.elysiumgames.dragoncraft.world.level.block.entity.ModBlockEntities;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -45,6 +49,7 @@ public class DragonCraft
         //ModParticles.register(modEventBus);
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -80,6 +85,8 @@ public class DragonCraft
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            Sheets.addWoodType(ModWoodTypes.AJISA);
+            ModItemProperties.addCustomItemProperties();
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_HEALING_WATER.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_HEALING_WATER.get(), RenderType.translucent());
         }

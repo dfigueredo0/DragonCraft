@@ -1,6 +1,7 @@
 package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
 import com.elysiumgames.dragoncraft.potion.ModPotions;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
@@ -46,6 +47,9 @@ public class LangGenerator extends LanguageProvider {
         add(ModBlocks.STRIPPED_AJISA_WOOD.get(), "Stripped Ajisa Wood");
         add(ModBlocks.AJISA_PLANKS.get(), "Ajisa Planks");
         add(ModBlocks.AJISA_SAPLING.get(), "Ajisa Sapling");
+        add(ModBlocks.AJISA_LEAVES.get(), "Ajisa Leaves");
+        add(ModBlocks.AJISA_SIGN.get(), "Ajisa Sign");
+        add(ModBlocks.AJISA_HANGING_SIGN.get(), "Ajisa Hanging Sign");
 
         add(ModItems.DINOSAUR_MEAT.get(), "Dinosaur Meat");
         add(ModItems.COOK_DINOSAUR_MEAT.get(), "Cooked Dinosaur Meat");
@@ -67,6 +71,7 @@ public class LangGenerator extends LanguageProvider {
         add(ModItems.PARABELLUM_PICKAXE.get(), "Parabellum Pickaxe");
         add(ModItems.PARABELLUM_AXE.get(), "Parabellum Axe");
         add(ModItems.PARABELLUM_HOE.get(), "Parabellum Hoe");
+        add(ModItems.INFERNIUM_BOW.get(), "Infernium Bow");
         add(ModItems.INFERNIUM_SWORD.get(), "Infernium Sword");
         add(ModItems.INFERNIUM_SHOVEL.get(), "Infernium Shovel");
         add(ModItems.INFERNIUM_PICKAXE.get(), "Infernium Pickaxe");
@@ -94,6 +99,8 @@ public class LangGenerator extends LanguageProvider {
         addRecord(ModItems.MAKAFUSHIGI_ADVENTURE_RECORD.get(), "Makafushigi Adventure Record", "Hiroki Takahashi - Makafushigi Adventure");
 
         addPainting(ModPaintings.ARTWORK_93.getId().toString(), "Artwork 93", "Xenoverse 2");
+
+        add(ModFluidTypes.HEALING_WATER_FLUID_TYPE.get().getDescriptionId(), "Healing Water");
 
         add("creativetab.dragoncraft_tab", "Dragon Craft");
     }

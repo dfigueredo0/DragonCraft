@@ -69,6 +69,10 @@ public class DCBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.HELL_BLOOD_RUBY_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
         this.add(ModBlocks.HELL_INFERNIUM_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
         this.add(ModBlocks.AJISA_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.AJISA_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.add(ModBlocks.AJISA_SIGN.get(), block -> createSingleItemTable(ModItems.AJISA_SIGN.get()));
+        this.add(ModBlocks.AJISA_WALL_SIGN.get(), block -> createSingleItemTable(ModItems.AJISA_SIGN.get()));
+        this.add(ModBlocks.AJISA_HANGING_SIGN.get(), block -> createSingleItemTable(ModItems.AJISA_HANGING_SIGN.get()));
+        this.add(ModBlocks.AJISA_WALL_HANGING_SIGN.get(), block -> createSingleItemTable(ModItems.AJISA_HANGING_SIGN.get()));
     }
 
     protected LootTable.Builder createManyOreDrops(Block pBlock, Item item, float pMin, float pMax) {

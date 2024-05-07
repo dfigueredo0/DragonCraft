@@ -85,6 +85,9 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.STRIPPED_AJISA_LOG.get());
                         output.accept(ModBlocks.AJISA_PLANKS.get());
                         output.accept(ModBlocks.AJISA_LEAVES.get());
+
+                        output.accept(ModItems.AJISA_SIGN.get());
+                        output.accept(ModItems.AJISA_HANGING_SIGN.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

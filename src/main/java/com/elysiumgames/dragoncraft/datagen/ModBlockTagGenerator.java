@@ -1,7 +1,7 @@
 package com.elysiumgames.dragoncraft.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.tags.DCTags;
+import com.elysiumgames.dragoncraft.tags.ModTags;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -43,14 +43,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.HELL_BLOOD_RUBY_ORE.get(),
                         ModBlocks.BLOOD_RUBY_BLOCK.get());
 
-        this.tag(DCTags.Blocks.NEEDS_BLOOD_RUBY_TOOLS)
+        this.tag(ModTags.Blocks.NEEDS_BLOOD_RUBY_TOOLS)
                 .add(ModBlocks.PARABELLUM_ORE.get(),
                         ModBlocks.DEEPSLATE_PARABELLUM_ORE.get(),
                         ModBlocks.END_STONE_PARABELLUM_ORE.get(),
                         ModBlocks.PARABELLUM_BLOCK.get(),
                         ModBlocks.RAW_PARABELLUM_BLOCK.get());
 
-        this.tag(DCTags.Blocks.NEEDS_PARABELLUM_TOOLS)
+        this.tag(ModTags.Blocks.NEEDS_PARABELLUM_TOOLS)
                 .add(ModBlocks.HELL_INFERNIUM_ORE.get(),
                         ModBlocks.INFERNIUM_BLOCK.get());
 

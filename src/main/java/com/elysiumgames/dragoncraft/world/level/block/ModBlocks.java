@@ -2,9 +2,10 @@ package com.elysiumgames.dragoncraft.world.level.block;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
+import com.elysiumgames.dragoncraft.utils.ModWoodTypes;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
-import com.elysiumgames.dragoncraft.world.level.block.custom.ClimbablePillarBlock;
-import com.elysiumgames.dragoncraft.world.level.block.custom.ModFlammableRotatedPillarBlock;
+import com.elysiumgames.dragoncraft.world.level.block.custom.*;
+import com.elysiumgames.dragoncraft.world.level.block.grower.AjisaTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -106,7 +107,16 @@ public class ModBlocks {
                 }
             });
     public static final RegistryObject<Block> AJISA_SAPLING = registerBlock("ajisa_sapling",
-            () -> new SaplingBlock(null, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(new AjisaTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    public static final RegistryObject<Block> AJISA_SIGN = BLOCKS.register("ajisa_sign",
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.AJISA));
+    public static final RegistryObject<Block> AJISA_WALL_SIGN = BLOCKS.register("ajisa_wall_sign",
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.AJISA));
+    public static final RegistryObject<Block> AJISA_HANGING_SIGN = BLOCKS.register("ajisa_hanging_sign",
+            () -> new ModHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), ModWoodTypes.AJISA));
+    public static final RegistryObject<Block> AJISA_WALL_HANGING_SIGN = BLOCKS.register("ajisa_wall_hanging_sign",
+            () -> new ModWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.AJISA));
 
     //Fluids
     public static final RegistryObject<LiquidBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",

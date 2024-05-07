@@ -6,6 +6,7 @@ import com.elysiumgames.dragoncraft.sound.ModSounds;
 import com.elysiumgames.dragoncraft.world.food.DCFoods;
 import com.elysiumgames.dragoncraft.world.item.custom.DCArmorItem;
 import com.elysiumgames.dragoncraft.world.item.custom.InferniumSwordItem;
+import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -86,6 +87,11 @@ public class ModItems {
             () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> INFERNIUM_BOOTS = ITEMS.register("infernium_boots",
             () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> AJISA_SIGN = ITEMS.register("ajisa_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.AJISA_SIGN.get(), ModBlocks.AJISA_WALL_SIGN.get()));
+    public static final RegistryObject<Item> AJISA_HANGING_SIGN = ITEMS.register("ajisa_hanging_sign",
+            () -> new HangingSignItem(ModBlocks.AJISA_HANGING_SIGN.get(), ModBlocks.AJISA_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     public static final RegistryObject<Item> CHA_LA_RECORD = ITEMS.register("cha_la_record",
             () -> new RecordItem(4, ModSounds.CHA_LA_HEAD_CHA_LA, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC), 2220));
