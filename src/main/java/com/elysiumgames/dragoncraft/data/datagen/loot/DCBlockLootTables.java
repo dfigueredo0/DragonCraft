@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.datagen.loot;
+package com.elysiumgames.dragoncraft.data.datagen.loot;
 
 import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;

@@ -1,6 +1,6 @@
-package com.elysiumgames.dragoncraft.datagen;
+package com.elysiumgames.dragoncraft.data.datagen;
 
-import com.elysiumgames.dragoncraft.datagen.loot.DCBlockLootTables;
+import com.elysiumgames.dragoncraft.data.datagen.loot.DCBlockLootTables;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;

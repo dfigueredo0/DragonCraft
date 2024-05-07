@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.datagen;
+package com.elysiumgames.dragoncraft.data.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.sound.ModSounds;

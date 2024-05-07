@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.datagen;
+package com.elysiumgames.dragoncraft.data.datagen;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.tags.ModTags;
@@ -36,33 +36,30 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.DEEPSLATE_PARABELLUM_ORE.get(),
                         ModBlocks.END_STONE_PARABELLUM_ORE.get(),
                         ModBlocks.JANEMBA_HELL.get());
-
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.BLOOD_RUBY_ORE.get(),
                         ModBlocks.DEEPSLATE_BLOOD_RUBY_ORE.get(),
                         ModBlocks.HELL_BLOOD_RUBY_ORE.get(),
                         ModBlocks.BLOOD_RUBY_BLOCK.get());
-
         this.tag(ModTags.Blocks.NEEDS_BLOOD_RUBY_TOOLS)
                 .add(ModBlocks.PARABELLUM_ORE.get(),
                         ModBlocks.DEEPSLATE_PARABELLUM_ORE.get(),
                         ModBlocks.END_STONE_PARABELLUM_ORE.get(),
                         ModBlocks.PARABELLUM_BLOCK.get(),
                         ModBlocks.RAW_PARABELLUM_BLOCK.get());
-
         this.tag(ModTags.Blocks.NEEDS_PARABELLUM_TOOLS)
                 .add(ModBlocks.HELL_INFERNIUM_ORE.get(),
                         ModBlocks.INFERNIUM_BLOCK.get());
-
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.AJISA_LOG.get())
                 .add(ModBlocks.AJISA_WOOD.get())
                 .add(ModBlocks.STRIPPED_AJISA_LOG.get())
                 .add(ModBlocks.STRIPPED_AJISA_WOOD.get());
-
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.AJISA_PLANKS.get());
-
+        this.tag(BlockTags.DIRT)
+                .add(ModBlocks.GIZARD_DIRT.get())
+                .add(ModBlocks.DEFAULT_HELL.get());
 
     }
 
