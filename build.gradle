@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT' apply true
+    id 'org.spongepowered.mixin' version '0.7.+' apply true
 }
 
 version = mod_version
@@ -150,6 +150,8 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
@@ -178,6 +180,15 @@ tasks.named('processResources', ProcessResources).configure {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.dragoncraft.refmap.json'
+    config 'mixins.dragoncraft.json'
+
+    debug.verbose = true
+    debug.export = true
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
