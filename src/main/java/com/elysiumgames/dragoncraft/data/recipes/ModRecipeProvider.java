@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.data.datagen;
+package com.elysiumgames.dragoncraft.data.recipes;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.world.item.ModItems;

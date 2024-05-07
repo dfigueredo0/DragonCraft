@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.data.datagen;
+package com.elysiumgames.dragoncraft.data.tags;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;

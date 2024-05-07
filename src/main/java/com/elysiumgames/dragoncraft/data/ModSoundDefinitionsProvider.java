@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.data.datagen;
+package com.elysiumgames.dragoncraft.data;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
@@ -7,7 +7,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 
 public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
-    protected ModSoundDefinitionsProvider(PackOutput output, ExistingFileHelper helper) {
+    public ModSoundDefinitionsProvider(PackOutput output, ExistingFileHelper helper) {
         super(output, DragonCraft.MOD_ID, helper);
     }
 

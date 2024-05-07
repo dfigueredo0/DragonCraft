@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.data.datagen.loot;
+package com.elysiumgames.dragoncraft.data.loot;
 
 import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
@@ -21,8 +21,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
-public class DCBlockLootTables extends BlockLootSubProvider {
-    public DCBlockLootTables() {
+public class ModBlockLootTables extends BlockLootSubProvider {
+    public ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
 

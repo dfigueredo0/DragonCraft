@@ -1,20 +1,16 @@
-package com.elysiumgames.dragoncraft.data.datagen;
+package com.elysiumgames.dragoncraft.data;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
-import com.elysiumgames.dragoncraft.potion.ModPotions;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.common.Mod;
 
-public class LangGenerator extends LanguageProvider {
-    public LangGenerator(PackOutput pOutput, String locale) {
+public class ModLanguageProvider extends LanguageProvider {
+    public ModLanguageProvider(PackOutput pOutput, String locale) {
         super(pOutput, DragonCraft.MOD_ID, locale);
     }
 
