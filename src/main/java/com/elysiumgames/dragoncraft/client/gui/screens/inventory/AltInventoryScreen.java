@@ -1,4 +1,4 @@
-package com.elysiumgames.client.gui.screens.inventory;
+package com.elysiumgames.dragoncraft.client.gui.screens.inventory;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.world.inventory.AltInventoryMenu;
