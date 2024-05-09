@@ -7,6 +7,6 @@ import terrablender.api.Regions;
 
 public class ModTerraBlenderAPI {
     public static void registerRegions() {
-        Regions.register(new ModOverworldRegion(new ResourceLocation(DragonCraft.MOD_ID, "overworld"), 4));
+        Regions.register(new ModOverworldRegion(new ResourceLocation(DragonCraft.MOD_ID, "overworld"), 6));
     }
 }
