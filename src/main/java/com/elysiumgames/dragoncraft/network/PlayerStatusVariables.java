@@ -93,7 +93,7 @@ public class PlayerStatusVariables {
             clone.formBoost = original.formBoost;
             clone.formLevel = original.formLevel;
             clone.formPath = original.formPath;
-            clone.formTimer = original.formTimer;
+            //clone.formTimer = original.formTimer;
             clone.godKi = original.godKi;
             clone.hairColor = original.hairColor;
             clone.hairColorID = original.hairColorID;
@@ -168,11 +168,11 @@ public class PlayerStatusVariables {
             clone.hasTail = original.hasTail;
             clone.kiDrainTimer = original.kiDrainTimer;
             clone.healthDrainTimer = original.healthDrainTimer;
-            clone.healthDrain = original.healthDrain;
+            //clone.healthDrain = original.healthDrain;
             clone.flyingSpeed = original.flyingSpeed;
             clone.kiBlastTimer = original.kiBlastTimer;
             clone.auraTimer = original.auraTimer;
-            clone.fightingMode = original.fightingMode;
+            //clone.fightingMode = original.fightingMode;
             clone.fightingTimer = original.fightingTimer;
             clone.fullPowerLevel = original.fullPowerLevel;
             clone.superNamekian = original.superNamekian;
