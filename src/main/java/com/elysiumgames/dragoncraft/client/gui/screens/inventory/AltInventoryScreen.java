@@ -66,15 +66,15 @@ public class AltInventoryScreen extends AbstractContainerScreen<AltInventoryMenu
 
         pGuiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/top.png"), this.leftPos + 7, this.topPos + 26, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/tshirt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/pants.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/boots.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/belt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/belt2.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/wristbands.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/weights.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dbm:textures/screens/scouter.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/top.png"), this.leftPos + 7, this.topPos + 26, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/tshirt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/pants.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/boots.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt2.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/wristbands.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/weights.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/scouter.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
 
         RenderSystem.disableBlend();
     }
