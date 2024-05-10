@@ -230,7 +230,7 @@ public class AltInventoryMenu extends AbstractContainerMenu implements Supplier<
     public boolean stillValid(Player pPlayer) {
         if (this.bounded) {
             if (this.boundItemMatcher != null)
-                return this.boundItemMatcher.get().booleanValue();
+                return this.boundItemMatcher.get();
             if (this.blockEntity != null)
                 return AbstractContainerMenu.stillValid(this.containerLevelAccess, pPlayer, this.blockEntity.getBlockState().getBlock());
             if (this.boundEntity != null) {

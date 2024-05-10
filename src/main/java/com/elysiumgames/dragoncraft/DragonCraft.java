@@ -4,7 +4,6 @@ import com.elysiumgames.dragoncraft.config.AttributeConfig;
 import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
-import com.elysiumgames.dragoncraft.particle.ModParticles;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
 import com.elysiumgames.dragoncraft.utils.ModWoodTypes;
 import com.elysiumgames.dragoncraft.world.item.ModCreativeModeTab;
@@ -52,9 +51,9 @@ import java.util.function.Supplier;
 public class DragonCraft
 {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final String PROTOCOL_VERSION = "1";
-    private static int messageID = 0;
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
+    private static int messageID = 0;
+    public static final String PROTOCOL_VERSION = "1.0";
     public static final String MOD_ID = "dragoncraft";
     public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
@@ -85,6 +84,9 @@ public class DragonCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(() -> {
+
+        });
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
     }
 

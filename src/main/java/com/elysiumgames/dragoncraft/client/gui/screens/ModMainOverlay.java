@@ -44,7 +44,7 @@ public class ModMainOverlay {
                 GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO
         );
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        if (CharacterCreated.execute(localPlayer)) {
+        if (CharacterCreated.execute(localPlayer)) { //TODO: maybe change?
             RenderSystem.setShaderTexture(0, BAR_TEXTURE);
             guiGraphics.blit(BAR_TEXTURE, (width / 2) - 171, (height / 2) - 94, 0, 0, 128, 8, 128, 8);
             RenderSystem.setShaderTexture(0, BAR_TEXTURE);

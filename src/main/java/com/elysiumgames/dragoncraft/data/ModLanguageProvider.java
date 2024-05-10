@@ -1,6 +1,7 @@
 package com.elysiumgames.dragoncraft.data;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.client.ModKeyMappings;
 import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
@@ -104,6 +105,21 @@ public class ModLanguageProvider extends LanguageProvider {
         addBiome(ModBiomes.NAMEKIAN_OCEANS.location().toLanguageKey(), "Namekian Ocean");
 
         add(ModFluidTypes.HEALING_WATER_FLUID_TYPE.get().getDescriptionId(), "Healing Water");
+
+        add(ModKeyMappings.KEY_CATEGORY_TUTORIAL, "DragonCraft Mod");
+
+        add(ModKeyMappings.KEY_ALT_FUNCTION, "Alt Function");
+        add(ModKeyMappings.KEY_BLOCK, "Block");
+        add(ModKeyMappings.KEY_CHARGE_KI, "Charge Ki");
+        add(ModKeyMappings.KEY_FLY, "Fly");
+        add(ModKeyMappings.KEY_JUMP, "Jump");
+        add(ModKeyMappings.KEY_KI_ATTACK, "Ki Attack");
+        add(ModKeyMappings.KEY_LOCKED_ON, "Lock On Entity");
+        add(ModKeyMappings.KEY_OPEN_STATS, "Open Stats");
+        add(ModKeyMappings.KEY_RELEASE_POWER, "Release Power");
+        add(ModKeyMappings.KEY_REVERT_FORM, "Revert to Base");
+        add(ModKeyMappings.KEY_TRANSFORM, "Transform");
+        add(ModKeyMappings.KEY_TURBO, "Turbo");
 
         add("creativetab.dragoncraft_tab", "Dragon Craft");
     }
