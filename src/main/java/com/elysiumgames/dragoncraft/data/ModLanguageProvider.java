@@ -93,6 +93,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModItems.HEALING_WATER_BUCKET.get(), "Healing Water Bucket");
 
+        add(ModItems.SAIBAMEN_SPAWN_EGG.get(), "Saibamen Spawn Egg");
+
         addRecord(ModItems.CHA_LA_RECORD.get(), "Cha La Head Cha La Record","Hironobu Kageyama - Cha-La Head Cha-La" );
         addRecord(ModItems.CHOZETSU_DYNAMIC_RECORD.get(), "Chōzetsu ☆ Dynamic! Record", "Kazuya Yoshii - Chōzetsu ☆ Dynamic!");
         addRecord(ModItems.DRAGON_SOUL_RECORD.get(), "Dragon Soul Record", "Takayoshi Tanimoto - Dragon Soul");

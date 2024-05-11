@@ -96,6 +96,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.AJISA_SIGN);
         simpleItem(ModItems.AJISA_HANGING_SIGN);
+
+        withExistingParent(ModItems.SAIBAMEN_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
 
     private ItemModelBuilder complexBlock(Block block) {

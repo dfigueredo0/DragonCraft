@@ -1,11 +1,14 @@
 package com.elysiumgames.dragoncraft;
 
+import com.elysiumgames.dragoncraft.client.renderer.entity.SaibamenRenderer;
 import com.elysiumgames.dragoncraft.config.AttributeConfig;
 import com.elysiumgames.dragoncraft.fluid.ModFluidTypes;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.painting.ModPaintings;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
 import com.elysiumgames.dragoncraft.utils.ModWoodTypes;
+import com.elysiumgames.dragoncraft.world.entity.ModEntities;
+import com.elysiumgames.dragoncraft.world.inventory.ModMenuTypes;
 import com.elysiumgames.dragoncraft.world.item.ModCreativeModeTab;
 import com.elysiumgames.dragoncraft.world.item.ModItemProperties;
 import com.elysiumgames.dragoncraft.world.item.ModItems;
@@ -17,6 +20,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -70,7 +74,8 @@ public class DragonCraft
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
         ModBlockEntities.register(modEventBus);
-
+        ModMenuTypes.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModTerraBlenderAPI.registerRegions();
 
         modEventBus.addListener(this::commonSetup);
@@ -128,6 +133,8 @@ public class DragonCraft
             ModItemProperties.addCustomItemProperties();
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_HEALING_WATER.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_HEALING_WATER.get(), RenderType.translucent());
+
+            EntityRenderers.register(ModEntities.SAIBAMEN.get(), SaibamenRenderer::new);
         }
     }
 }

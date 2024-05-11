@@ -3,11 +3,13 @@ package com.elysiumgames.dragoncraft.world.item;
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
+import com.elysiumgames.dragoncraft.world.entity.ModEntities;
 import com.elysiumgames.dragoncraft.world.food.DCFoods;
 import com.elysiumgames.dragoncraft.world.item.custom.DCArmorItem;
 import com.elysiumgames.dragoncraft.world.item.custom.InferniumSwordItem;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -104,6 +106,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> HEALING_WATER_BUCKET = ITEMS.register("healing_water_bucket",
             () -> new BucketItem(ModFluids.SOURCE_HEALING_WATER, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+    public static final RegistryObject<Item> SAIBAMEN_SPAWN_EGG = ITEMS.register("saibamen_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SAIBAMEN, 0x395613, 0xb7bd52, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -25,11 +25,6 @@ public class ClientEvents {
     @Mod.EventBusSubscriber(modid = DragonCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModBusEvents {
         @SubscribeEvent
-        public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
-
-        }
-
-        @SubscribeEvent
         public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
             //event.registerSpriteSet(ModParticles.BEYOND_SS_PARTICLES.get(), BeyondSuperSaiyanParticles.Provider::new);
         }

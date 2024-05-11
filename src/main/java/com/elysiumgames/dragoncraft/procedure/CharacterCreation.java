@@ -35,7 +35,7 @@ public class CharacterCreation {
             double mental = 30.0D;
             double kiPower = 75.0D;
             double zenkaiBoostLevel = 1.0D;
-            if (Math.random() < 0.5D) {
+            if (Math.random() < 0.5D) { // TODO: Might have to look into RandomSource
                 double maxHealthL = maxHealth * 1.5D;
                 double strengthL = strength * 1.5D;
                 double speedL = speed * 1.5D;
