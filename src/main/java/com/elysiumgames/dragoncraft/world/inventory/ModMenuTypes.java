@@ -14,7 +14,8 @@ public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, DragonCraft.MOD_ID);
 
     public static final RegistryObject<MenuType<AltInventoryMenu>> ALT_INVENTORY_MENU = registerMenuType(AltInventoryMenu::new, "alt_inventory_menu");
-    public static final RegistryObject<MenuType<AltInventoryMenu>> STATISTICS_MENU = registerMenuType(AltInventoryMenu::new, "statistics_menu");
+    public static final RegistryObject<MenuType<StatisticsMenu>> STATISTICS_MENU = registerMenuType(StatisticsMenu::new, "statistics_menu");
+    public static final RegistryObject<MenuType<RacialSkillMenu>> RACIAL_SKILL_MENU = registerMenuType(RacialSkillMenu::new, "racial_skill_menu");
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

@@ -11,6 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.items.SlotItemHandler;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.HashMap;
 
@@ -45,7 +47,7 @@ public class AltInventoryScreen extends AbstractContainerScreen<AltInventoryMenu
 
     @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
-        if (pKeyCode == 256) {
+        if (pKeyCode == GLFW.GLFW_KEY_ESCAPE) {
             assert this.minecraft != null;
             assert this.minecraft.player != null;
             this.minecraft.player.closeContainer();
@@ -60,7 +62,7 @@ public class AltInventoryScreen extends AbstractContainerScreen<AltInventoryMenu
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        RenderSystem.setShaderTexture(0, TEXTURE);
+
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
@@ -68,13 +70,13 @@ public class AltInventoryScreen extends AbstractContainerScreen<AltInventoryMenu
 
         pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/top.png"), this.leftPos + 7, this.topPos + 26, 0, 0, 16, 16, 16, 16);
         pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/tshirt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/pants.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/boots.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt2.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/wristbands.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/weights.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
-        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/scouter.png"),this.leftPos + 7, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/pants.png"),this.leftPos + 7, this.topPos + 62, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/boots.png"),this.leftPos + 25, this.topPos + 26, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/wristbands.png"),this.leftPos + 25, this.topPos + 44, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt.png"),this.leftPos + 25, this.topPos + 62, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/belt2.png"),this.leftPos + 25, this.topPos + 62, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/weights.png"),this.leftPos + 43, this.topPos + 26, 0, 0, 16, 16, 16, 16);
+        pGuiGraphics.blit(new ResourceLocation("dragoncraft:textures/screens/scouter.png"),this.leftPos + 43, this.topPos + 44, 0, 0, 16, 16, 16, 16);
 
         RenderSystem.disableBlend();
     }

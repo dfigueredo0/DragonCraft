@@ -35,7 +35,7 @@ public class StatisticsMenu extends AbstractContainerMenu implements Supplier<Ma
         super(ModMenuTypes.STATISTICS_MENU.get(), pContainerId);
         this.player = inv.player;
         this.level = inv.player.level();
-        this.iItemHandler = new ItemStackHandler(8);
+        this.iItemHandler = new ItemStackHandler(0);
         BlockPos pos = null;
         if (extraData != null) {
             pos = extraData.readBlockPos();
