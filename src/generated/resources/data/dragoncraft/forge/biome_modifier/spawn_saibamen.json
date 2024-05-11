@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#dragoncraft:is_gizard_wasteland",
+  "spawners": {
+    "type": "dragoncraft:saibamen",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 8
+  }
+}

@@ -5,6 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -22,7 +23,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Random;
 
 public class Saibamen extends Monster {
     private static final EntityDataAccessor<Integer> DATA_SWELL_DIR = SynchedEntityData.defineId(Saibamen.class, EntityDataSerializers.INT);
@@ -45,7 +45,7 @@ public class Saibamen extends Monster {
         //create goal for if low health explode look at creeper swell goal for inspo.
         //plus fly goal maybe look at bee when angry? + only flies if player is flying
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false)); // might have to create own melee goal for custom anim
         this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 10f));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
@@ -183,5 +183,18 @@ public class Saibamen extends Monster {
         //Variant variant = Util.getRandom(Variant.values(), this.random);
         this.setVariant(variant);
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return super.getAmbientSound();
+        // look at xenoverse assets for saibamen sounds? Or lookup
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return super.getDeathSound();
+        // look at xenoverse assets for saibamen sounds? Or lookup
     }
 }

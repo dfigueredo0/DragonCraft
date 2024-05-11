@@ -1,8 +1,10 @@
 package com.elysiumgames.dragoncraft.tags;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.world.level.biome.ModBiomes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -35,6 +37,7 @@ public class ModTags {
 
     public static class Biomes {
         public static final TagKey<Biome> IS_NAMEK = tag("is_namek");
+        public static final TagKey<Biome> IS_GIZARD_WASTELAND = tag("is_gizard_wasteland");
 
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DragonCraft.MOD_ID, name));

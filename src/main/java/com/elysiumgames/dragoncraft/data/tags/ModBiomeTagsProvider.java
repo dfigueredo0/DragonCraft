@@ -24,6 +24,8 @@ public class ModBiomeTagsProvider extends BiomeTagsProvider {
                 .add(ModBiomes.NAMEKIAN_ISLANDS)
                 .add(ModBiomes.NAMEKIAN_OCEANS);
                 TODO: Fix Couldn't define tag dragoncraft:is_namek as it is missing following references: dragoncraft:namekian_plains,dragoncraft:namekian_forest,dragoncraft:namekian_islands,dragoncraft:namekian_oceans
+          this.tag(ModTags.Biomes.IS_GIZARD_WASTELAND)
+                .add(ModBiomes.GIZARD_WASTELAND);
         */
     }
 }
