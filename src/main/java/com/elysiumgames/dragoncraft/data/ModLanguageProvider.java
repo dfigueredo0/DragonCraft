@@ -21,6 +21,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.KORIN_PILLAR.get(), "Korin Pillar");
         add(ModBlocks.KORIN_PILLAR_1.get(), "Korin Pillar");
         add(ModBlocks.KORIN_PILLAR_2.get(), "Korin Pillar");
+        add(ModBlocks.DRAGON_BALL.get(), "Dragon Ball");
 
         add(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), "Deepslate Elatos Ore");
         add(ModBlocks.ELATOS_ORE.get(), "Elatos Ore");

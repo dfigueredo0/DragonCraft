@@ -81,6 +81,8 @@ public class ModCreativeModeTab {
                         output.accept(ModBlocks.DEEPSLATE_PARABELLUM_ORE.get());
                         output.accept(ModBlocks.END_STONE_PARABELLUM_ORE.get());
 
+                        output.accept(ModBlocks.DRAGON_BALL.get());
+
                         output.accept(ModBlocks.AJISA_LOG.get());
                         output.accept(ModBlocks.STRIPPED_AJISA_LOG.get());
                         output.accept(ModBlocks.AJISA_PLANKS.get());

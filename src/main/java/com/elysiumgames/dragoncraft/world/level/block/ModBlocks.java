@@ -9,8 +9,10 @@ import com.elysiumgames.dragoncraft.world.level.block.grower.AjisaTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -135,14 +137,31 @@ public class ModBlocks {
             () -> new ClimbablePillarBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).noLootTable().noOcclusion().noLootTable()
                     .strength(-1.0F, 1024.0F).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
 
+    public static final RegistryObject<Block> DRAGON_BALL = registerDragonBlock("dragon_ball",
+            () -> new DragonBallBlock(BlockBehaviour.Properties.of().noOcclusion().instabreak().isViewBlocking(ModBlocks::never)));
+
+    private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return false;
+    }
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    private static <T extends Block> RegistryObject<T> registerDragonBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerDragonBallBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> void registerDragonBallBlockItem(String name, RegistryObject<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(7).fireResistant().rarity(Rarity.RARE)));
+    }
+
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

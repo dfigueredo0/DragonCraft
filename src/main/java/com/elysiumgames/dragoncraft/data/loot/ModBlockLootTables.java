@@ -57,6 +57,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_AJISA_WOOD.get());
         this.dropSelf(ModBlocks.AJISA_PLANKS.get());
         this.dropSelf(ModBlocks.AJISA_SAPLING.get());
+        this.dropSelf(ModBlocks.DRAGON_BALL.get());
 
         this.add(ModBlocks.ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.ELATOS_ORE.get(), ModItems.ELATOS.get()));
         this.add(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ELATOS_ORE.get(), ModItems.ELATOS.get()));

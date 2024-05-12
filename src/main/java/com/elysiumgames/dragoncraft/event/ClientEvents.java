@@ -2,6 +2,7 @@ package com.elysiumgames.dragoncraft.event;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.client.ModKeyMappings;
+import com.elysiumgames.dragoncraft.network.packet.AltFunctionC2SPacket;
 import com.elysiumgames.dragoncraft.world.level.block.entity.ModBlockEntities;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -14,14 +15,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 public class ClientEvents {
-    @Mod.EventBusSubscriber(modid = DragonCraft.MOD_ID, value = Dist.CLIENT)
-    public static class ClientForgeEvents {
-        @SubscribeEvent
-        public static void onKeyInput(InputEvent.Key event) {
-
-        }
-    }
-
     @Mod.EventBusSubscriber(modid = DragonCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModBusEvents {
         @SubscribeEvent

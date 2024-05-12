@@ -1,4 +1,4 @@
-package com.elysiumgames.dragoncraft.procedure;
+package com.elysiumgames.dragoncraft.network.handlers;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.network.PlayerStatusVariables;

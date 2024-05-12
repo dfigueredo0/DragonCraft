@@ -1,7 +1,7 @@
 package com.elysiumgames.dragoncraft.client.gui.screens;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.procedure.CharacterCreated;
+import com.elysiumgames.dragoncraft.network.handlers.CharacterCreated;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;

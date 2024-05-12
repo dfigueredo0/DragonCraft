@@ -41,12 +41,8 @@ public class ExampleC2SPacket {
         context.setPacketHandled(true);
     }
 
-    public static void press(Player player, int type, int lastPressedTime) {
-
-    }
-
     @SubscribeEvent
-    public static void registerMessage(FMLCommonSetupEvent event) {
+    public static void register(FMLCommonSetupEvent event) {
         DragonCraft.addNetworkMessage(ExampleC2SPacket.class, ExampleC2SPacket::toBytes, ExampleC2SPacket::new, ExampleC2SPacket::handle);
     }
 }

@@ -1,12 +1,28 @@
 package com.elysiumgames.dragoncraft.client;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.network.packet.AltFunctionC2SPacket;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.settings.KeyConflictContext;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.glfw.GLFW;
 
 public class ModKeyMappings {
+    private static long KI_CHARGE_LASTPRESS = 0L;
+    private static long RELEASE_POWER_LASTPRESS = 0L;
+    private static long TRANSFORM_LASTPRESS = 0L;
+    private static long DETRANSFORM_LASTPRESS = 0L;
+    private static long ALTERNATIVE_FUNCTION_LAST_PRESS = 0L;
+    private static long SHOOT_KI_BLAST_LASTPRESS = 0L;
+    private static long BLOCKING_LASTPRESS = 0L;
+    private static long LONG_JUMP_LASTPRESS = 0L;
+    private static long CHARGE_ATTACK_LASTPRESS = 0L;
+
     public static final String KEY_CATEGORY_TUTORIAL = "key.category.dragoncraft.tutorial";
 
     public static final String KEY_ALT_FUNCTION = registerKey("alt_function");
@@ -22,7 +38,24 @@ public class ModKeyMappings {
     public static final String KEY_TRANSFORM = registerKey("transform");
     public static final String KEY_TURBO = registerKey("turbo");
 
-    public static final KeyMapping ALT_FUNCTION_KEY = new KeyMapping(KEY_ALT_FUNCTION, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, KEY_CATEGORY_TUTORIAL);
+    public static final KeyMapping ALT_FUNCTION_KEY = new KeyMapping(KEY_ALT_FUNCTION, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, KEY_CATEGORY_TUTORIAL) {
+        boolean isDown;
+
+        @Override
+        public void setDown(boolean down) {
+            super.setDown(down);
+            if (isDown != down && down) {
+                DragonCraft.PACKET_HANDLER.sendToServer(new AltFunctionC2SPacket(0, 0));
+//                AltFunctionC2SPacket.pressed(Minecraft.getInstance().player, 0, 0);
+                ALTERNATIVE_FUNCTION_LAST_PRESS = System.currentTimeMillis();
+            } else if (isDown != down) {
+                int dt = (int) (System.currentTimeMillis() - ALTERNATIVE_FUNCTION_LAST_PRESS);
+                DragonCraft.PACKET_HANDLER.sendToServer(new AltFunctionC2SPacket(1, dt));
+//                AltFunctionC2SPacket.pressed(Minecraft.getInstance().player, 1, dt);
+            }
+            isDown = down;
+        }
+    };
     public static final KeyMapping BLOCK_KEY = new KeyMapping(KEY_BLOCK, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_Q, KEY_CATEGORY_TUTORIAL);
     public static final KeyMapping CHARGING_KEY = new KeyMapping(KEY_CHARGE_KI, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_X, KEY_CATEGORY_TUTORIAL);
     public static final KeyMapping FLYING_KEY = new KeyMapping(KEY_FLY, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F, KEY_CATEGORY_TUTORIAL);
@@ -37,5 +70,26 @@ public class ModKeyMappings {
 
     private static String registerKey(String name) {
         return "key." + DragonCraft.MOD_ID + "." + name;
+    }
+
+    @Mod.EventBusSubscriber(value = Dist.CLIENT)
+    public static class KeyEventListener {
+        @SubscribeEvent
+        public static void onClientTick(TickEvent.ClientTickEvent event) {
+            if (Minecraft.getInstance().screen == null) {
+                ALT_FUNCTION_KEY.setToDefault();
+                BLOCK_KEY.setToDefault();
+                CHARGING_KEY.setToDefault();
+                FLYING_KEY.setToDefault();
+                JUMP_KEY.setToDefault();
+                KI_ATTACK_KEY.setToDefault();
+                LOCKED_ON_KEY.setToDefault();
+                OPEN_STATS_KEY.setToDefault();
+                RELEASE_POWER_KEY.setToDefault();
+                REVERT_FORM_KEY.setToDefault();
+                TRANSFORM_KEY.setToDefault();
+                TURBO_KEY.setToDefault();
+            }
+        }
     }
 }

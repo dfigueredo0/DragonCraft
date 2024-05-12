@@ -66,7 +66,7 @@ public class PlayerStatusVariables {
         }
 
         @SubscribeEvent
-        public static void clonePlayer(PlayerEvent.Clone event) {
+        public static void onPlayerCloned(PlayerEvent.Clone event) {
             event.getOriginal().revive();
             PlayerVariables original = event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
             PlayerVariables clone = event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables());
@@ -154,6 +154,7 @@ public class PlayerStatusVariables {
             clone.isTransforming = original.isTransforming;
             clone.inTurboMode = original.inTurboMode;
             clone.zenkaiBoostLevel = original.zenkaiBoostLevel;
+            clone.selectedSlot = original.selectedSlot;
             clone.topSlot0 = original.topSlot0;
             clone.tShirtSlot1 = original.tShirtSlot1;
             clone.pantsSlot2 = original.pantsSlot2;
@@ -448,6 +449,7 @@ public class PlayerStatusVariables {
         public boolean none = false;
         public double superSayainRageLevel = 0.0D;
         public double beastLevel = 0.0D;
+        public double selectedSlot = 0.0D;
         public ItemStack topSlot0 = ItemStack.EMPTY;
         public ItemStack tShirtSlot1 = ItemStack.EMPTY;
         public ItemStack pantsSlot2 = ItemStack.EMPTY;
@@ -644,6 +646,7 @@ public class PlayerStatusVariables {
             nbt.putString("beltID", this.beltID);
             nbt.putString("weightID", this.weightID);
             nbt.putString("scouterID", this.scouterID);
+            nbt.putDouble("selectedSlot", this.selectedSlot);
             nbt.put("topSlot0", this.topSlot0.serializeNBT());
             nbt.put("tShirtSlot1", this.tShirtSlot1.serializeNBT());
             nbt.put("pantsSlot2", this.pantsSlot2.serializeNBT());
@@ -826,6 +829,7 @@ public class PlayerStatusVariables {
             this.beltID = nbt.getString("beltID");
             this.weightID = nbt.getString("weightID");
             this.scouterID = nbt.getString("scouterID");
+            this.selectedSlot = nbt.getDouble("selectedSlot");
             this.topSlot0 = ItemStack.of(nbt.getCompound("topSlot0"));
             this.tShirtSlot1 = ItemStack.of(nbt.getCompound("tShirtSlot1"));
             this.pantsSlot2 = ItemStack.of(nbt.getCompound("pantsSlot2"));
@@ -1039,6 +1043,7 @@ public class PlayerStatusVariables {
                     variables.beltID = message.data.beltID;
                     variables.weightID = message.data.weightID;
                     variables.scouterID = message.data.scouterID;
+                    variables.selectedSlot = message.data.selectedSlot;
                     variables.topSlot0 = message.data.topSlot0;
                     variables.tShirtSlot1 = message.data.tShirtSlot1;
                     variables.pantsSlot2 = message.data.pantsSlot2;

@@ -1,9 +1,11 @@
 package com.elysiumgames.dragoncraft.data.worldgen.biome;
 
+import com.elysiumgames.dragoncraft.world.entity.ModEntities;
 import com.elysiumgames.dragoncraft.world.level.levelgen.placement.ModPlacedFeatures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
@@ -24,6 +26,7 @@ public class ModOverworldBiomes {
     public static Biome gizardWastelandBiome(BootstapContext<Biome> pContext) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         //spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.DINOSAUR.get(), 2, 3, 5));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ModEntities.SAIBAMEN.get(), 2, 3, 5));
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(pContext.lookup(Registries.PLACED_FEATURE), pContext.lookup(Registries.CONFIGURED_CARVER));

@@ -3,7 +3,6 @@ package com.elysiumgames.dragoncraft.data.generators;
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.utils.IAgeableCropBlock;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
-import com.elysiumgames.dragoncraft.world.level.block.custom.DragonBallBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -28,6 +27,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.KORIN_PILLAR.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar")));
         simpleBlock(ModBlocks.KORIN_PILLAR_1.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_1")));
         simpleBlock(ModBlocks.KORIN_PILLAR_2.get(), new ModelFile.UncheckedModelFile(modLoc("block/korin_pillar_2")));
+        simpleBlock(ModBlocks.DRAGON_BALL.get(), new ModelFile.UncheckedModelFile(modLoc("block/dragon_ball")));
 
         blockWithItem(ModBlocks.ELATOS_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_ELATOS_ORE);
@@ -64,16 +64,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
         hangingSignBlock(ModBlocks.AJISA_HANGING_SIGN.get(), ModBlocks.AJISA_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.AJISA_PLANKS.get()));
     }
 
-    private void dragonBallBlock() {
-        getVariantBuilder(ModBlocks.ELATOS_BLOCK.get()).forAllStates(state -> {
-            if (state.getValue(DragonBallBlock.CLICKED)) {
-               return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("dragon_ball_used",
-                       new ResourceLocation(DragonCraft.MOD_ID, "block/" + "dragon_ball_used")))};
-           } else {
-               return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll("dragon_ball",
-                       new ResourceLocation(DragonCraft.MOD_ID, "block/" + "dragon_ball")))};
-           }
-        });
+
+    private String name(Block block) {
+        return key(block).getPath();
+    }
+
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
@@ -90,14 +87,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void hangingSignBlock(Block signBlock, Block wallSignBlock, ModelFile sign) {
         simpleBlock(signBlock, sign);
         simpleBlock(wallSignBlock, sign);
-    }
-
-    private String name(Block block) {
-        return key(block).getPath();
-    }
-
-    private ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

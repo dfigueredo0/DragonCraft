@@ -1,6 +1,6 @@
 package com.elysiumgames.dragoncraft.world.inventory;
 
-import com.elysiumgames.dragoncraft.procedure.AltInventory;
+import com.elysiumgames.dragoncraft.network.handlers.AltInventory;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

@@ -6,7 +6,9 @@ import com.elysiumgames.dragoncraft.client.model.geom.ModModelLayers;
 import com.elysiumgames.dragoncraft.world.entity.monster.saibamen.Saibamen;
 import com.elysiumgames.dragoncraft.world.entity.monster.saibamen.Variant;
 import com.google.common.collect.Maps;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.Util;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -24,7 +26,13 @@ public class SaibamenRenderer extends MobRenderer<Saibamen, SaibamenModel<Saibam
     });
 
     public SaibamenRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new SaibamenModel<>(pContext.bakeLayer(ModModelLayers.SAIBAMEN_LAYER)), 0.95F);
+        super(pContext, new SaibamenModel<>(pContext.bakeLayer(ModModelLayers.SAIBAMEN_LAYER)), 0.45F);
+    }
+
+    @Override
+    public void render(Saibamen pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+        pPoseStack.scale(1.35F, 1.35F, 1.35F);
+        super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }
 
     @Override

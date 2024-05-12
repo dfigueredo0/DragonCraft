@@ -45,6 +45,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         complexBlock(ModBlocks.KORIN_PILLAR.get());
         complexBlock(ModBlocks.KORIN_PILLAR_1.get());
         complexBlock(ModBlocks.KORIN_PILLAR_2.get());
+        complexBlock(ModBlocks.DRAGON_BALL.get());
 
         simpleItem(ModItems.ELATOS);
         simpleItem(ModItems.RAW_PARABELLUM);
