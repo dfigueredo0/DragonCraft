@@ -109,7 +109,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModFluidTypes.HEALING_WATER_FLUID_TYPE.get().getDescriptionId(), "Healing Water");
 
-        add(ModKeyMappings.KEY_CATEGORY_TUTORIAL, "DragonCraft Mod");
+        add(ModKeyMappings.KEY_CATEGORY, "DragonCraft Mod");
 
         add(ModKeyMappings.KEY_ALT_FUNCTION, "Alt Function");
         add(ModKeyMappings.KEY_BLOCK, "Block");

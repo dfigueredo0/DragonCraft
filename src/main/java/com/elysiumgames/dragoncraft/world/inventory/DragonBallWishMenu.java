@@ -20,12 +20,12 @@ public class DragonBallWishMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public DragonBallWishMenu(int pContainerId, Inventory inventory, FriendlyByteBuf extraData) {
-        this(pContainerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+        this(pContainerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(0));
     }
 
     public DragonBallWishMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.DRAGON_BALL_WISH_MENU.get(), pContainerId);
-        checkContainerSize(inv, 3);
+        checkContainerSize(inv, 0);
         blockEntity = (DragonBallBlockEntity) entity;
         this.level = inv.player.level();
         this.data = data;

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dragoncraft:block/hell_elatos_ore"
+  }
+}

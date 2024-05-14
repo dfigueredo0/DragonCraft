@@ -1,7 +1,9 @@
 package com.elysiumgames.dragoncraft.network.packet;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
+import com.elysiumgames.dragoncraft.client.gui.screens.inventory.AltInventoryScreen;
 import com.elysiumgames.dragoncraft.network.PlayerStatusVariables;
+import com.elysiumgames.dragoncraft.world.inventory.AltInventoryMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
@@ -12,6 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.NetworkHooks;
 
 import java.util.function.Supplier;
 
@@ -27,7 +30,7 @@ public class AltFunctionC2SPacket {
 
     public AltFunctionC2SPacket(FriendlyByteBuf pBuffer) {
         this.type = pBuffer.readInt();
-        this.lastPressedTime =pBuffer.readInt();
+        this.lastPressedTime = pBuffer.readInt();
     }
 
     public static void toByte(AltFunctionC2SPacket message, FriendlyByteBuf pBuffer) {
@@ -41,6 +44,7 @@ public class AltFunctionC2SPacket {
             ServerPlayer player = context.getSender();
 
             if (message.type == 0) {
+                assert player != null;
                 double selectedSlot =  player.getInventory().selected;
                 player.getCapability(PlayerStatusVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
                     capability.altFunction = true;

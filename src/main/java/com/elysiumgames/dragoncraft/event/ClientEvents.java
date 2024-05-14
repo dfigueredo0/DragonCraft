@@ -2,13 +2,11 @@ package com.elysiumgames.dragoncraft.event;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.client.ModKeyMappings;
-import com.elysiumgames.dragoncraft.network.packet.AltFunctionC2SPacket;
 import com.elysiumgames.dragoncraft.world.level.block.entity.ModBlockEntities;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,7 +27,7 @@ public class ClientEvents {
         }
 
         @SubscribeEvent
-        public static void onKeyRegister(RegisterKeyMappingsEvent event) {
+        public static void registerKeys(RegisterKeyMappingsEvent event) {
             event.register(ModKeyMappings.ALT_FUNCTION_KEY);
             event.register(ModKeyMappings.BLOCK_KEY);
             event.register(ModKeyMappings.CHARGING_KEY);

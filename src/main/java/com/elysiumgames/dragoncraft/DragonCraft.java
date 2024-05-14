@@ -1,6 +1,5 @@
 package com.elysiumgames.dragoncraft;
 
-import com.elysiumgames.dragoncraft.client.gui.screens.DragonBallWishScreen;
 import com.elysiumgames.dragoncraft.client.gui.screens.inventory.AltInventoryScreen;
 import com.elysiumgames.dragoncraft.client.renderer.entity.SaibamenRenderer;
 import com.elysiumgames.dragoncraft.config.AttributeConfig;
@@ -18,7 +17,6 @@ import com.elysiumgames.dragoncraft.world.level.biome.ModTerraBlenderAPI;
 import com.elysiumgames.dragoncraft.world.level.biome.surface.ModSurfaceRules;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import com.elysiumgames.dragoncraft.world.level.block.entity.ModBlockEntities;
-import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -28,9 +26,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -44,7 +40,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
-import org.slf4j.Logger;
 import terrablender.api.SurfaceRuleManager;
 
 import java.util.AbstractMap;
@@ -56,13 +51,11 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(DragonCraft.MOD_ID)
 public class DragonCraft {
     public static final String PROTOCOL_VERSION = "1.0";
     public static final String MOD_ID = "dragoncraft";
     public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
-    private static final Logger LOGGER = LogUtils.getLogger();
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
     private static int messageID = 0;
 
@@ -85,8 +78,6 @@ public class DragonCraft {
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        modEventBus.addListener(this::addCreative);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -112,43 +103,31 @@ public class DragonCraft {
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
-    }
-
     @SubscribeEvent
     public void tick(TickEvent.ServerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
             List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
             workQueue.forEach(work -> {
-                work.setValue(Integer.valueOf(work.getValue().intValue() - 1));
-                if (work.getValue().intValue() == 0)
+                work.setValue(work.getValue() - 1);
+                if (work.getValue() == 0)
                     actions.add(work);
             });
             actions.forEach(e -> e.getKey().run());
             workQueue.removeAll(actions);
         }
     }
-        // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-        @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-        public static class ClientModEvents {
-            @SubscribeEvent
-            public static void onClientSetup(FMLClientSetupEvent event) {
-                Sheets.addWoodType(ModWoodTypes.AJISA);
-                ModItemProperties.addCustomItemProperties();
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_HEALING_WATER.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_HEALING_WATER.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DRAGON_BALL.get(), RenderType.translucent());
-                MenuScreens.register(ModMenuTypes.ALT_INVENTORY_MENU.get(), AltInventoryScreen::new);
-                MenuScreens.register(ModMenuTypes.DRAGON_BALL_WISH_MENU.get(), DragonBallWishScreen::new);
-                EntityRenderers.register(ModEntities.SAIBAMEN.get(), SaibamenRenderer::new);
-            }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event) {
+            Sheets.addWoodType(ModWoodTypes.AJISA);
+            ModItemProperties.addCustomItemProperties();
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_HEALING_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_HEALING_WATER.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DRAGON_BALL.get(), RenderType.translucent());
+            MenuScreens.register(ModMenuTypes.ALT_INVENTORY_MENU.get(), AltInventoryScreen::new);
+            EntityRenderers.register(ModEntities.SAIBAMEN.get(), SaibamenRenderer::new);
         }
     }
+}
