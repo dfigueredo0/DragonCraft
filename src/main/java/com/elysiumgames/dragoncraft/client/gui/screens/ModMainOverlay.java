@@ -52,7 +52,7 @@ public class ModMainOverlay {
             RenderSystem.setShaderTexture(0, BAR_TEXTURE);
             guiGraphics.blit(POWER_BAR_TEXTURE, (width / 2) - 185, (height / 2) - 80, 0, 0, 128, 8, 128, 8);
             RenderSystem.setShaderTexture(0, POWER_BAR_TEXTURE);
-            guiGraphics.blit(POWER_BAR_TEXTURE, (width / 2) + -180, (height / 2) + -72, 0.0F, 0.0F, 45, 8, 45, 8);
+            guiGraphics.blit(POWER_BAR_TEXTURE, (width / 2)  - 180, (height / 2) - 72, 0.0F, 0.0F, 45, 8, 45, 8);
         }
         RenderSystem.depthMask(true);
         RenderSystem.enableDepthTest();

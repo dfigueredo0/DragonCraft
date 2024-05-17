@@ -85,9 +85,8 @@ public class CharacterCreationHandler {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 

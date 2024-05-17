@@ -36,6 +36,7 @@ public class ExampleC2SPacket {
         context.enqueueWork(() -> {
             // ON SERVER
             ServerPlayer player = context.getSender();
+            assert player != null;
             ServerLevel level = player.serverLevel();
         });
         context.setPacketHandled(true);

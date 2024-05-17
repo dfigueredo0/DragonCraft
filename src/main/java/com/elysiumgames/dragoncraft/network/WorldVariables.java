@@ -145,13 +145,10 @@ public class WorldVariables {
             this.type = pBuffer.readInt();
             this.data = this.type == 0 ? new MapVariables() : new LevelVariables();
             SavedData savedData = this.data;
-            if (savedData instanceof MapVariables) {
-                MapVariables mapVariables = (MapVariables) savedData;
+            if (savedData instanceof MapVariables mapVariables) {
                 mapVariables.read(pBuffer.readNbt());
             } else {
-                savedData = this.data;
-                if (savedData instanceof LevelVariables) {
-                    LevelVariables levelVariables = (LevelVariables) savedData;
+                if (savedData instanceof LevelVariables levelVariables) {
                     levelVariables.read(pBuffer.readNbt());
                 }
             }

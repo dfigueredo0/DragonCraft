@@ -57,6 +57,7 @@ public class AttributeConfig {
         for (Attribute attribute : BuiltInRegistries.ATTRIBUTE) {
             if (attribute instanceof RangedAttribute ranged) {
                 final ResourceLocation id = BuiltInRegistries.ATTRIBUTE.getKey(attribute);
+                assert id != null;
                 config.attributes.put(id.toString(), new Entry(id, ranged));
             }
         }

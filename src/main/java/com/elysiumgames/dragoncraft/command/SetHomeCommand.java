@@ -15,6 +15,7 @@ public class SetHomeCommand {
 
     private int execute(CommandContext<CommandSourceStack> pContext) {
         ServerPlayer player = pContext.getSource().getPlayer();
+        assert player != null;
         BlockPos playerPos = player.blockPosition();
         String positionString = "(" + playerPos.getX() + ", " + playerPos.getY() + ", " + playerPos.getZ() + ")";
 

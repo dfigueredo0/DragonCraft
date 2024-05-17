@@ -131,7 +131,7 @@ public class AltInventoryMenu extends AbstractContainerMenu implements Supplier<
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (!sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 

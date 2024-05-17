@@ -102,7 +102,7 @@ public class CharacterCustomizationScreen extends Screen {
                         DragonCraft.PACKET_HANDLER.sendToServer(new CharacterCustomizationPacket(9, this.player.getBlockX(), this.player.getBlockY(), this.player.getBlockZ()));
                         CharacterCustomizationPacket.handleButtonAction((ServerPlayer) this.player, 9, this.player.getBlockX(), this.player.getBlockY(), this.player.getBlockZ());
                     }
-                }).bounds(this.leftPos + -40, this.topPos + 25, 8, 20).build());
+                }).bounds(this.leftPos - 40, this.topPos + 25, 8, 20).build());
 
         this.button8 = addRenderableWidget(Button.builder(Component.translatable("gui." + DragonCraft.MOD_ID + ".character_customization_gui.button8"), e -> {
             if (SkinTypeHandler.hasSkin(this.player, 1)) {
