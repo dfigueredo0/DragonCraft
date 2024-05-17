@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
 public class Constants {
     public static final String MOD_NAME = "DragonCraft";
@@ -36,4 +37,25 @@ public class Constants {
             return new JsonPrimitive(value);
         }
     }
+
+    public enum Race {
+        HUMAN("Human"),
+        SAIYAN("Saiyan"),
+        HALF_SAIYAN("Half_Saiyan"),
+        FROST_DEMON("Frost_Demon"),
+        NAMEKIAN("Namekian"),
+        MAJIN("Majin")
+        ;
+
+        private final String race;
+
+        Race(String race) {
+            this.race = race;
+        }
+
+        public String getRace() {
+            return race;
+        }
+    }
+
 }

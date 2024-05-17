@@ -15,9 +15,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CharacterCreation {
+public class CharacterCreationHandler {
     public static void execute(LevelAccessor levelAccessor, Entity entity, int x, int y, int z) {
         if (entity == null) {
             return;
@@ -35,7 +36,7 @@ public class CharacterCreation {
             double mental = 30.0D;
             double kiPower = 75.0D;
             double zenkaiBoostLevel = 1.0D;
-            if (Math.random() < 0.5D) { // TODO: Might have to look into RandomSource
+            if (Math.random() < 0.5D) {
                 double maxHealthL = maxHealth * 1.5D;
                 double strengthL = strength * 1.5D;
                 double speedL = speed * 1.5D;
@@ -86,7 +87,7 @@ public class CharacterCreation {
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
                     @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
@@ -131,14 +132,13 @@ public class CharacterCreation {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
                     @Override
-                    public Component getDisplayName() {
+                    public @NotNull Component getDisplayName() {
                         return Component.literal("Stats");
                     }
                 }, blockPos);
@@ -177,14 +177,13 @@ public class CharacterCreation {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
                     @Override
-                    public Component getDisplayName() {
+                    public @NotNull Component getDisplayName() {
                         return Component.literal("Stats");
                     }
                 }, blockPos);
@@ -223,14 +222,13 @@ public class CharacterCreation {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
                     @Override
-                    public Component getDisplayName() {
+                    public @NotNull Component getDisplayName() {
                         return Component.literal("Stats");
                     }
                 }, blockPos);
@@ -252,7 +250,7 @@ public class CharacterCreation {
                 capability.ki = maxKi;
                 capability.mental = mental;
                 capability.kiPower = kiPower;
-                capability.zenkaiBoostLevel = 1.0D;
+                capability.zenkaiBoostLevel = zenkaiBoostLevel;
                 capability.syncPlayerVariables(entity);
             });
             if (entity instanceof LivingEntity livingEntity) {
@@ -271,14 +269,13 @@ public class CharacterCreation {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
                     @Override
-                    public Component getDisplayName() {
+                    public @NotNull Component getDisplayName() {
                         return Component.literal("Stats");
                     }
                 }, blockPos);
@@ -317,18 +314,24 @@ public class CharacterCreation {
             if (entity instanceof ServerPlayer serverPlayer) {
                 final BlockPos blockPos = new BlockPos(x, y, z);
                 NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
-                    @Nullable
                     @Override
-                    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+                    public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
                         return new StatisticsMenu(pContainerId, pPlayerInventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(blockPos));
                     }
 
                     @Override
-                    public Component getDisplayName() {
+                    public @NotNull Component getDisplayName() {
                         return Component.literal("Stats");
                     }
                 }, blockPos);
             }
         }
+    }
+
+    public static boolean isCharacterCreated(Entity entity) {
+        if (entity == null) {
+            return false;
+        }
+        return entity.getCapability(PlayerStatusVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerStatusVariables.PlayerVariables()).createdCharacter;
     }
 }

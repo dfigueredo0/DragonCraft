@@ -22,24 +22,9 @@ public class ModKeyMappings {
     public static final String KEY_TRANSFORM = registerKey("transform");
     public static final String KEY_TURBO = registerKey("turbo");
 
-    public static final KeyMapping ALT_FUNCTION_KEY = new KeyMapping(
-            KEY_ALT_FUNCTION,
-            KeyConflictContext.IN_GAME,
-            InputConstants.getKey(InputConstants.KEY_LALT, -1),
-            KEY_CATEGORY);
-
-    public static final KeyMapping BLOCK_KEY = new KeyMapping(
-            KEY_BLOCK,
-            KeyConflictContext.IN_GAME,
-            InputConstants.getKey(InputConstants.KEY_Z, -1),
-            KEY_CATEGORY);
-
-    public static final KeyMapping CHARGING_KEY = new KeyMapping(
-            KEY_CHARGE_KI,
-            KeyConflictContext.IN_GAME,
-            InputConstants.getKey(InputConstants.KEY_X, -1),
-            KEY_CATEGORY);
-
+    public static final KeyMapping ALT_FUNCTION_KEY =  new KeyMapping(KEY_ALT_FUNCTION, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_LEFT_ALT, KEY_CATEGORY);
+    public static final KeyMapping BLOCK_KEY =  new KeyMapping(KEY_BLOCK, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_Z, KEY_CATEGORY);
+    public static final KeyMapping CHARGING_KEY =  new KeyMapping(KEY_CHARGE_KI, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_X, KEY_CATEGORY);
     public static final KeyMapping FLYING_KEY = new KeyMapping(KEY_FLY, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_F, KEY_CATEGORY);
     public static final KeyMapping JUMP_KEY = new KeyMapping(KEY_JUMP, KeyConflictContext.IN_GAME, InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_SPACE, KEY_CATEGORY);
     public static final KeyMapping KI_ATTACK_KEY = new KeyMapping(KEY_KI_ATTACK, KeyConflictContext.IN_GAME, InputConstants.Type.MOUSE, GLFW.GLFW_MOUSE_BUTTON_RIGHT, KEY_CATEGORY);

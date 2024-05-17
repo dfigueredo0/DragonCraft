@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PlayerStatusVariables {
-    public static final Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY = CapabilityManager.get(new CapabilityToken<PlayerVariables>() {});
+    public static final Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {});
 
     @SubscribeEvent
     public static void init(FMLCommonSetupEvent event) {
@@ -124,7 +124,15 @@ public class PlayerStatusVariables {
             clone.race = original.race;
             clone.releasedPower = original.releasedPower;
             clone.releasingPower = original.releasingPower;
-            clone.selectedKiSlot = original.selectedKiSlot;
+//            clone.selectedKiSlot = original.selectedKiSlot;
+            clone.slot1 = original.slot1;
+            clone.slot2 = original.slot2;
+            clone.slot3 = original.slot3;
+            clone.slot4 = original.slot4;
+            clone.slot5 = original.slot5;
+            clone.slot6 = original.slot6;
+            clone.slot7 = original.slot7;
+            clone.slot8 = original.slot8;
             clone.shootingKiBlast = original.shootingKiBlast;
             clone.showOverlay = original.showOverlay;
             clone.skinColor1 = original.skinColor1;
@@ -342,6 +350,14 @@ public class PlayerStatusVariables {
         public double releasedPower = 0.05;
         public boolean releasingPower = false;
         public double selectedKiSlot = 1.0;
+        public String slot1 = "Empty";
+        public String slot2 = "Empty";
+        public String slot3 = "Empty";
+        public String slot4 = "Empty";
+        public String slot5 = "Empty";
+        public String slot6 = "Empty";
+        public String slot7 = "Empty";
+        public String slot8 = "Empty";
         public boolean shootingKiBlast = false;
         public boolean showOverlay = false;
         public double skinColor1 = 1.0;
@@ -530,7 +546,15 @@ public class PlayerStatusVariables {
             nbt.putString("race", this.race);
             nbt.putDouble("releasedPower", this.releasedPower);
             nbt.putBoolean("releasingPower", this.releasingPower);
-            nbt.putDouble("selectedKiSlot", this.selectedKiSlot);
+//            nbt.putDouble("selectedKiSlot", this.selectedKiSlot);
+            nbt.putString("slot1", this.slot1);
+            nbt.putString("slot2", this.slot2);
+            nbt.putString("slot3", this.slot3);
+            nbt.putString("slot4", this.slot4);
+            nbt.putString("slot5", this.slot5);
+            nbt.putString("slot6", this.slot6);
+            nbt.putString("slot7", this.slot7);
+            nbt.putString("slot8", this.slot8);
             nbt.putBoolean("shootingKiBlast", this.shootingKiBlast);
             nbt.putBoolean("showOverlay", this.showOverlay);
             nbt.putDouble("skinColor1", this.skinColor1);
@@ -713,7 +737,15 @@ public class PlayerStatusVariables {
             this.race = nbt.getString("race");
             this.releasedPower = nbt.getDouble("releasedPower");
             this.releasingPower = nbt.getBoolean("releasingPower");
-            this.selectedKiSlot = nbt.getDouble("selectedKiSlot");
+//            this.selectedKiSlot = nbt.getDouble("selectedKiSlot");
+            this.slot1 = nbt.getString("slot1");
+            this.slot2 = nbt.getString("slot2");
+            this.slot3 = nbt.getString("slot3");
+            this.slot4 = nbt.getString("slot4");
+            this.slot5 = nbt.getString("slot5");
+            this.slot6 = nbt.getString("slot6");
+            this.slot7 = nbt.getString("slot7");
+            this.slot8 = nbt.getString("slot8");
             this.shootingKiBlast = nbt.getBoolean("shootingKiBlast");
             this.showOverlay = nbt.getBoolean("showOverlay");
             this.skinColor1 = nbt.getDouble("skinColor1");
@@ -927,7 +959,15 @@ public class PlayerStatusVariables {
                     variables.race = message.data.race;
                     variables.releasedPower = message.data.releasedPower;
                     variables.releasingPower = message.data.releasingPower;
-                    variables.selectedKiSlot = message.data.selectedKiSlot;
+//                    variables.selectedKiSlot = message.data.selectedKiSlot;
+                    variables.slot1 = message.data.slot1;
+                    variables.slot2 = message.data.slot2;
+                    variables.slot3 = message.data.slot3;
+                    variables.slot4 = message.data.slot4;
+                    variables.slot5 = message.data.slot5;
+                    variables.slot6 = message.data.slot6;
+                    variables.slot7 = message.data.slot7;
+                    variables.slot8 = message.data.slot8;
                     variables.shootingKiBlast = message.data.shootingKiBlast;
                     variables.showOverlay = message.data.showOverlay;
                     variables.skinColor1 = message.data.skinColor1;

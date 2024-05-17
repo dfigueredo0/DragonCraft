@@ -123,8 +123,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> NAMEK_PORTAL = registerBlock("namek_portal", () -> new NamekPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noLootTable()));
 
     //Fluids
-    public static final RegistryObject<LiquidBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",
-            () -> new LiquidBlock(ModFluids.SOURCE_HEALING_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+    public static final RegistryObject<HealingWaterBlock> HEALING_WATER_BLOCK = BLOCKS.register("healing_water_block",
+            () -> new HealingWaterBlock(ModFluids.SOURCE_HEALING_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
     //Korin Tower TODO: Make Climbable
     public static final RegistryObject<Block> KORIN_PILLAR = registerBlock("korin_pillar",

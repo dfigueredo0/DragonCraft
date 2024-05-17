@@ -122,7 +122,7 @@ public class StatsButtonPacket {
                 break;
             case 5:
                 if (hasEnoughStatPoints(player)) {
-                    double newKiPower = playerVariables.kiPower + 12.5D; //TODO: Create dex variable
+                    double newKiPower = playerVariables.kiPower + 12.5D;
                     double xp = playerVariables.xp + 1.0D;
                     double statPoints = playerVariables.statusPoints - playerVariables.neededStatPoints;
                     player.getCapability(PlayerStatusVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

@@ -12,13 +12,13 @@ import net.minecraft.world.level.Level;
 
 import java.util.Map;
 
-public class DCArmorItem extends ArmorItem {
+public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP = new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>()
             .put(ModArmorMaterial.BLOOD_RUBY, new MobEffectInstance(MobEffects.REGENERATION, 200, 1))
             .put(ModArmorMaterial.INFERNIUM, new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 1))
             .build();
 
-    public DCArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
+    public ModArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
 

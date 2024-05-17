@@ -1,20 +1,13 @@
 package com.elysiumgames.dragoncraft.network.packet;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.client.gui.screens.inventory.AltInventoryScreen;
 import com.elysiumgames.dragoncraft.network.PlayerStatusVariables;
-import com.elysiumgames.dragoncraft.world.inventory.AltInventoryMenu;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.network.NetworkHooks;
 
 import java.util.function.Supplier;
 

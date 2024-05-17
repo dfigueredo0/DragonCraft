@@ -2,6 +2,7 @@ package com.elysiumgames.dragoncraft.event;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.client.ModKeyMappings;
+import com.elysiumgames.dragoncraft.client.gui.screens.StatisticsMenuScreen;
 import com.elysiumgames.dragoncraft.network.ClientHooks;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,7 +18,7 @@ public class ModClientForgeBusEvents {
 
         assert minecraft.player != null;
         if (ModKeyMappings.OPEN_STATS_KEY.consumeClick()) {
-            ClientHooks.openStatScreen();
+            ClientHooks.openScreen(new StatisticsMenuScreen(minecraft.player.blockPosition()));
         }
     }
 }

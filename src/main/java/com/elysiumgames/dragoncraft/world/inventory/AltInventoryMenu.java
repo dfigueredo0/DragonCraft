@@ -1,6 +1,6 @@
 package com.elysiumgames.dragoncraft.world.inventory;
 
-import com.elysiumgames.dragoncraft.network.handlers.AltInventory;
+import com.elysiumgames.dragoncraft.network.handlers.AltInventoryHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
@@ -98,13 +98,13 @@ public class AltInventoryMenu extends AbstractContainerMenu implements Supplier<
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-        AltInventory.Open.execute(this.level, this.entity);
+        AltInventoryHandler.Open.execute(this.level, this.entity);
     }
 
     @Override
     public void removed(Player pPlayer) {
         super.removed(pPlayer);
-        AltInventory.Close.execute(this.entity);
+        AltInventoryHandler.Close.execute(this.entity);
         if (!this.bounded && pPlayer instanceof ServerPlayer serverPlayer) {
             ItemStack itemstack = this.getCarried();
             if (!itemstack.isEmpty()) {

@@ -15,7 +15,6 @@ public class ModMenuTypes {
 
     public static final RegistryObject<MenuType<RacialSkillMenu>> ALIGNMENT_MENU = registerMenuType(RacialSkillMenu::new, "alignment_menu");
     public static final RegistryObject<MenuType<AltInventoryMenu>> ALT_INVENTORY_MENU = registerMenuType(AltInventoryMenu::new, "alt_inventory_menu");
-    public static final RegistryObject<MenuType<DragonBallWishMenu>> DRAGON_BALL_WISH_MENU = registerMenuType(DragonBallWishMenu::new, "dragon_ball_wish_menu");
     public static final RegistryObject<MenuType<StatisticsMenu>> STATISTICS_MENU = registerMenuType(StatisticsMenu::new, "statistics_menu");
     public static final RegistryObject<MenuType<RacialSkillMenu>> RACIAL_SKILL_MENU = registerMenuType(RacialSkillMenu::new, "racial_skill_menu");
     public static final RegistryObject<MenuType<RacialSkillMenu>> WELCOME_MENU = registerMenuType(RacialSkillMenu::new, "welcome_menu");

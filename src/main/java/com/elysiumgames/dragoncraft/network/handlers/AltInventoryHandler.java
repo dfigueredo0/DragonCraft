@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class AltInventory {
+public class AltInventoryHandler {
     public static class Open {
         public static void execute(LevelAccessor levelAccessor, Entity entity) {
             if (entity == null)

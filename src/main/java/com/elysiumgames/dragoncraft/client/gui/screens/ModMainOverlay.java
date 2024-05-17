@@ -1,7 +1,7 @@
 package com.elysiumgames.dragoncraft.client.gui.screens;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
-import com.elysiumgames.dragoncraft.network.handlers.CharacterCreated;
+import com.elysiumgames.dragoncraft.network.handlers.CharacterCreationHandler;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
@@ -44,7 +44,7 @@ public class ModMainOverlay {
                 GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO
         );
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        if (CharacterCreated.execute(localPlayer)) { //TODO: maybe change?
+        if (CharacterCreationHandler.isCharacterCreated(localPlayer)) { //TODO: maybe change?
             RenderSystem.setShaderTexture(0, BAR_TEXTURE);
             guiGraphics.blit(BAR_TEXTURE, (width / 2) - 171, (height / 2) - 94, 0, 0, 128, 8, 128, 8);
             RenderSystem.setShaderTexture(0, BAR_TEXTURE);

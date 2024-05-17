@@ -4,8 +4,8 @@ import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.fluid.ModFluids;
 import com.elysiumgames.dragoncraft.sound.ModSounds;
 import com.elysiumgames.dragoncraft.world.entity.ModEntities;
-import com.elysiumgames.dragoncraft.world.food.DCFoods;
-import com.elysiumgames.dragoncraft.world.item.custom.DCArmorItem;
+import com.elysiumgames.dragoncraft.world.food.ModFoods;
+import com.elysiumgames.dragoncraft.world.item.custom.ModArmorItem;
 import com.elysiumgames.dragoncraft.world.item.custom.InferniumSwordItem;
 import com.elysiumgames.dragoncraft.world.level.block.ModBlocks;
 import net.minecraft.world.item.*;
@@ -26,9 +26,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> KATCHIN = ITEMS.register("katchin", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> DINOSAUR_MEAT = ITEMS.register("dinosaur_meat", () -> new Item(new Item.Properties().food(DCFoods.DINOSAUR_MEAT)));
-    public static final RegistryObject<Item> COOK_DINOSAUR_MEAT = ITEMS.register("cooked_dinosaur_meat", () -> new Item(new Item.Properties().food(DCFoods.COOK_DINOSAUR_MEAT)));
-    public static final RegistryObject<Item> RADISH = ITEMS.register("radish", () -> new Item(new Item.Properties().food(DCFoods.RADISH)));
+    public static final RegistryObject<Item> DINOSAUR_MEAT = ITEMS.register("dinosaur_meat", () -> new Item(new Item.Properties().food(ModFoods.DINOSAUR_MEAT)));
+    public static final RegistryObject<Item> COOK_DINOSAUR_MEAT = ITEMS.register("cooked_dinosaur_meat", () -> new Item(new Item.Properties().food(ModFoods.COOK_DINOSAUR_MEAT)));
+    public static final RegistryObject<Item> RADISH = ITEMS.register("radish", () -> new Item(new Item.Properties().food(ModFoods.RADISH)));
 
     public static final RegistryObject<Item> BLOOD_RUBY_SWORD = ITEMS.register("blood_ruby_sword",
             () -> new SwordItem(ModToolTiers.BLOOD_RUBY ,3, -1.8F, new Item.Properties()));
@@ -66,13 +66,13 @@ public class ModItems {
             () -> new BowItem(new Item.Properties().durability(764)));
 
     public static final RegistryObject<Item> BLOOD_RUBY_HELMET = ITEMS.register("blood_ruby_helmet",
-            () -> new DCArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_RUBY_CHESTPLATE = ITEMS.register("blood_ruby_chestplate",
-            () -> new DCArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_RUBY_LEGGINGS = ITEMS.register("blood_ruby_leggings",
-            () -> new DCArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> BLOOD_RUBY_BOOTS = ITEMS.register("blood_ruby_boots",
-            () -> new DCArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.BLOOD_RUBY, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> PARABELLUM_HELMET = ITEMS.register("parabellum_helmet",
             () -> new ArmorItem(ModArmorMaterial.PARABELLUM, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> PARABELLUM_CHESTPLATE = ITEMS.register("parabellum_chestplate",
@@ -82,13 +82,13 @@ public class ModItems {
     public static final RegistryObject<Item> PARABELLUM_BOOTS = ITEMS.register("parabellum_boots",
             () -> new ArmorItem(ModArmorMaterial.PARABELLUM, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> INFERNIUM_HELMET = ITEMS.register("infernium_helmet",
-            () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> INFERNIUM_CHESTPLATE = ITEMS.register("infernium_chestplate",
-            () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> INFERNIUM_LEGGINGS = ITEMS.register("infernium_leggings",
-            () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> INFERNIUM_BOOTS = ITEMS.register("infernium_boots",
-            () -> new DCArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new ModArmorItem(ModArmorMaterial.INFERNIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> AJISA_SIGN = ITEMS.register("ajisa_sign",
             () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.AJISA_SIGN.get(), ModBlocks.AJISA_WALL_SIGN.get()));

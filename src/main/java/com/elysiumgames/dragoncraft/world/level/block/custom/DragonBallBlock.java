@@ -1,5 +1,6 @@
 package com.elysiumgames.dragoncraft.world.level.block.custom;
 
+import com.elysiumgames.dragoncraft.client.gui.screens.WishScreen;
 import com.elysiumgames.dragoncraft.network.ClientHooks;
 import com.elysiumgames.dragoncraft.world.level.block.entity.DragonBallBlockEntity;
 import com.elysiumgames.dragoncraft.world.level.block.entity.ModBlockEntities;
@@ -54,7 +55,7 @@ public class DragonBallBlock extends BaseEntityBlock {
 
         BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
         if (blockEntity instanceof DragonBallBlockEntity) {
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientHooks.openScreen(pPos));
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientHooks.openScreen(new WishScreen(pPos)));
             return InteractionResult.SUCCESS;
         }
 
