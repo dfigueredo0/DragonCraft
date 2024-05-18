@@ -21,7 +21,8 @@ public class ShowStatisticTextHandler {
         CLASS,
         FORM,
         BASE,
-        STATUS_POINTS
+        STATUS_POINTS,
+        RELEASED_POWER
     }
 
     public static String showVar(Entity entity, Type type) {
@@ -29,7 +30,7 @@ public class ShowStatisticTextHandler {
 
         PlayerStatusVariables.PlayerVariables playerVariables = entity.getCapability(PlayerStatusVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerStatusVariables.PlayerVariables());
 
-        String varType;
+        String varType = "";
         double value = 0;
         String val = "";
         switch (type) {
@@ -93,6 +94,9 @@ public class ShowStatisticTextHandler {
                 varType = "Status Points: ";
                 value = playerVariables.statusPoints;
             }
+            case RELEASED_POWER -> {
+                value = playerVariables.releasedPower * 100.0D;
+            }
 
             default -> throw new IllegalArgumentException("Unknown Type: " + type);
         }
@@ -100,6 +104,8 @@ public class ShowStatisticTextHandler {
             return varType + val;
         } else if (type.equals(Type.STATUS_POINTS)) {
             return varType + new DecimalFormat("##").format(value) + "/" + new DecimalFormat("##").format(playerVariables.neededStatPoints);
+        } else if (type.equals(Type.RELEASED_POWER)) {
+            return new DecimalFormat("##").format(value) + "%";
         } else {
             return varType + new DecimalFormat("##").format(value);
         }

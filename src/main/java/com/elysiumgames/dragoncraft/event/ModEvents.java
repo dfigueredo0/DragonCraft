@@ -2,13 +2,12 @@ package com.elysiumgames.dragoncraft.event;
 
 import com.elysiumgames.dragoncraft.DragonCraft;
 import com.elysiumgames.dragoncraft.client.gui.screens.WelcomeScreen;
-import com.elysiumgames.dragoncraft.command.BackCommand;
-import com.elysiumgames.dragoncraft.command.ReturnHomeCommand;
-import com.elysiumgames.dragoncraft.command.SetHomeCommand;
+import com.elysiumgames.dragoncraft.command.*;
 import com.elysiumgames.dragoncraft.network.ClientHooks;
 import com.elysiumgames.dragoncraft.network.handlers.CharacterCreationHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -19,6 +18,8 @@ import net.minecraftforge.server.command.ConfigCommand;
 public class ModEvents {
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new StatusPointsCommand(event.getDispatcher());
+        new StatsCommand(event.getDispatcher());
         new SetHomeCommand(event.getDispatcher());
         new ReturnHomeCommand(event.getDispatcher());
         new BackCommand(event.getDispatcher());
@@ -38,10 +39,10 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
-        event.getEntity().getPersistentData().putIntArray("dragoncraft.homepos",
-                event.getOriginal().getPersistentData().getIntArray("dragoncraft.homepos"));
+        Player original = event.getOriginal();
+        Player clone = event.getEntity();
 
-        event.getEntity().getPersistentData().putIntArray("dragoncraft.playerlastdeathlocation",
-                event.getOriginal().getPersistentData().getIntArray("dragoncraft.playerlastdeathlocation"));
+        clone.getPersistentData().putIntArray("dragoncraft.homepos",
+                original.getPersistentData().getIntArray("dragoncraft.homepos"));
     }
 }

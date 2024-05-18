@@ -93,7 +93,7 @@ public class PlayerStatusVariables {
             clone.formBoost = original.formBoost;
             clone.formLevel = original.formLevel;
             clone.formPath = original.formPath;
-            //clone.formTimer = original.formTimer;
+            clone.formTimer = original.formTimer;
             clone.godKi = original.godKi;
             clone.hairColor = original.hairColor;
             clone.hairColorID = original.hairColorID;
@@ -319,6 +319,7 @@ public class PlayerStatusVariables {
         public double formBoost = 1.0;
         public double formLevel = 0.0;
         public String formPath = "None";
+        public double formTimer = 0.0D;
         public boolean godKi = false;
         public double hairColor = 1.0;
         public String hairColorID = "dragoncraft:textures/entity/hair1.png";
@@ -516,6 +517,7 @@ public class PlayerStatusVariables {
             nbt.putDouble("formBoost", this.formBoost);
             nbt.putDouble("formLevel", this.formLevel);
             nbt.putString("formPath", this.formPath);
+            nbt.putDouble("formTimer", this.formTimer);
             nbt.putBoolean("godKi", this.godKi);
             nbt.putDouble("hairColor", this.hairColor);
             nbt.putString("hairColorID", this.hairColorID);
@@ -707,6 +709,7 @@ public class PlayerStatusVariables {
             this.formBoost = nbt.getDouble("formBoost");
             this.formLevel = nbt.getDouble("formLevel");
             this.formPath = nbt.getString("formPath");
+            this.formTimer = nbt.getDouble("formTimer");
             this.godKi = nbt.getBoolean("godKi");
             this.hairColor = nbt.getDouble("hairColor");
             this.hairColorID = nbt.getString("hairColorID" );
@@ -929,6 +932,7 @@ public class PlayerStatusVariables {
                     variables.formBoost = message.data.formBoost;
                     variables.formLevel = message.data.formLevel;
                     variables.formPath = message.data.formPath;
+                    variables.formTimer = message.data.formTimer;
                     variables.godKi = message.data.godKi;
                     variables.hairColor = message.data.hairColor;
                     variables.hairColorID = message.data.hairColorID;

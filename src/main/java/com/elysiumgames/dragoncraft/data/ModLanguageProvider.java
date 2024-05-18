@@ -124,6 +124,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModKeyMappings.KEY_TRANSFORM, "Transform");
         add(ModKeyMappings.KEY_TURBO, "Turbo");
 
+        add("command.dragoncraft.player_get.failed", "No player was found by the name '%1$s'\"");
+
         add("creativetab.dragoncraft_tab", "Dragon Craft");
     }
 
